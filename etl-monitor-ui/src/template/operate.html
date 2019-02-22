@@ -1,0 +1,87 @@
+<div class = "operateRecordBox">
+    <div class="operateTopPart">
+        <div class="operateLogo"></div>
+        <div class="operateTopRight">
+            <span ng-click = "closeOperateBox();">x</span>
+        </div>
+    </div>
+    <div class="operateContent">
+        <div class="contentLeft"></div>
+        <div class="contentRight">
+            <div class="operateTitle">
+                <span>操作日志</span>
+            </div>
+            <div class="realContent">
+                <div class="selectGroupUp">
+                    <div class="userSelect">
+                        <span>用户</span>
+                        <select ng-init="selectedName = userNames[0]" ng-change = "tellMeUser(selectedName);" ng-model="selectedName" ng-options="x for x in userNames">
+                        </select>
+                    </div>
+                    <div class="timeSelect">
+                        <span>日期</span>
+                        <select ng-init="selectedDate = searchDate[0]" ng-change = "tellMeDate(selectedDate);" ng-model="selectedDate" ng-options="x for x in searchDate"></select>
+                    </div>
+                    <div class="timeChooseArea" ng-show = "timeChoosePlugin">
+                        <span>从</span>
+                        <input type="text" id="recordStartTime"/>
+                        <span>到</span>
+                        <input type="text" id="recordEndTime"/>
+                    </div>
+                    <button class="searchRecordNow" ng-click = "requestOperateRecord(1);">
+                        查询
+                    </button>
+                </div>
+
+                <div class="tableArea">
+                        <div class="tableSize">
+                            <table>
+                                <tr>
+                                    <td>用户</td>
+                                    <td>用户IP</td>
+                                    <td>访问地址</td>
+                                    <td>请求方式</td>
+                                    <td>对象</td>
+                                    <td>对象类型</td>
+                                    <td>详细内容</td>
+                                    <td>操作时间</td>
+                                </tr>
+                            </table>
+                            <div>
+                            <table>
+                                <tr ng-repeat = "item in requestResult">
+                                    <td>{{item.userId}}</td>
+                                    <td>{{item.ipAddr}}</td>
+                                    <td title = "{{item.url}}">{{item.url}}</td>
+                                    <td>{{item.action}}</td>
+                                    <td title = "{{item.object | test}}">{{item.object | test}}</td>
+                                    <td title = "{{item.objectType}}">{{item.objectType}}</td>
+                                    <td title = "{{item.contents}}">{{item.contents}}</td>
+                                    <td>{{getLocalTime(item.addTime)}}</td>
+                                </tr>
+                            </table>
+                            </div>
+                        </div>
+                </div>
+                <!--分页控件-->
+                <div class="pagePlugin">
+                    <div id="operateRecordTable">
+                    </div>
+                    <div class="jumpAndTotalPage">
+                        <span>共</span>
+                        <span>{{totalPages}}</span>
+                        <span>页</span>
+                       <!-- <span>到第</span>
+                        <input type="text" ng-keyup = "listenToJump($event);" ng-model = "inputTotalPage"/>
+                        <span>页</span>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--提示窗口-->
+    <div class="commonMessageTips1">
+        <div></div>
+    </div>
+</div>

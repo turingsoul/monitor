@@ -1,0 +1,142 @@
+.inputTable{
+    width:401px;
+    height:484px;
+    background:white;
+}
+.inputTableTitle{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.inputTableTitle>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.inputTableTitle>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.inputTable .inputTableContent{
+    position: absolute;
+    top: 50px;
+    width:100%;
+    height:calc(100% - 50px);
+}
+.inputTableContent .upContent{
+    margin-left: 36px;
+    margin-top: 36px;
+    width:328px;
+    height:280px;
+}
+.inputTableContent .upContent>div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+.inputTableContent .upContent>div:nth-child(1){
+    width:100%;
+    height:48px;
+}
+.inputTableContent .upContent>div:nth-child(1) span{
+    font-weight:bold;
+    line-height:30px;
+}
+.inputTableContent .upContent>div:nth-child(1) input{
+    width:240px;
+    height:26px;
+    margin-left:18px;
+    text-indent:5px;
+    border: 1px solid #d8d8d8;
+}
+.inputTableContent .upContent>div:nth-child(2){
+    width:100%;
+    height:48px;
+}
+.inputTableContent .upContent>div:nth-child(2) span{
+    font-weight:bold;
+    line-height:30px;
+    margin-left:7px;
+}
+.inputTableContent .upContent>div:nth-child(2) select{
+    width:240px;
+    height:26px;
+    margin-left:18px;
+    text-indent:5px;
+    border: 1px solid #d8d8d8;
+}
+.inputTableContent .upContent>div:nth-child(3){
+    width:100%;
+    height:180px;
+}
+.inputTableContent .upContent>div:nth-child(3) span{
+    display: inline-block;
+    font-weight:bold;
+    line-height:30px;
+    margin-left:1px;
+}
+.inputTableContent .upContent>div:nth-child(3) textarea{
+    position: absolute;
+    right: 17px;
+    display: inline-block;
+    width:240px;
+    height:180px;
+    margin-left:18px;
+    text-indent:5px;
+    border: 1px solid #d8d8d8;
+    overflow-y: scroll;
+}
+.inputTable .inputTableContent .downButtonGroup{
+    position: absolute;
+    width:calc(100% - 98px);
+    height:30px;
+    right:54px;
+    bottom:38px;
+}
+.inputTable .inputTableContent .downButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.inputTable .inputTableContent .downButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.inputTable .inputTableContent .downButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.inputTable .inputTableContent .downButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.inputTable .inputTableContent .downButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+

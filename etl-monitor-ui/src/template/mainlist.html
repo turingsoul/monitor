@@ -1,0 +1,194 @@
+<div class="main">
+    <div class="mainTitle">
+        <i></i>
+        <div class="roleBox">
+            <div class="arrow"></div>
+            <div class="roleList">
+                <ul>
+                    <li title="用户管理" ng-click = "userManagement();">用户管理</li>
+                    <li title="修改密码" ng-click = "changePassword();">修改密码</li>
+                    <li title="操作日志" ng-click = "operateRecord();">操作日志</li>
+                    <li title="整合统计" ng-click = "integratedCount();">整合统计</li>
+                    <li title="退出登录" ng-click="loginOut();">退出登录</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mainBody">
+        <div class="planState">
+            <div class="stateList">
+                <ul>
+                    <li title="{{fileAll}}">
+                        <p>全部工作流</p>
+                        <p><span class="color6">{{fileAll}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg6"></span></p>
+                        <span class="border"></span>
+                    </li>
+                    <li title="{{stateAll}}">
+                        <p>全部计划任务</p>
+                        <p><span class="color1">{{stateAll}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg1"></span></p>
+                    </li>
+                    <li title="{{stateRunning}}">
+                        <p>运行中</p>
+                        <p><span class="color2">{{stateRunning}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg2"></span></p>
+                    </li>
+                    <li title="{{stateNormal}}">
+                        <p>正常</p>
+                        <p><span class="color3">{{stateNormal}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg3"></span></p>
+                    </li>
+                    <li title="{{stateError}}">
+                        <p>错误</p>
+                        <p><span class="color4">{{stateError}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg4"></span></p>
+                    </li>
+                    <li title="{{stateStop}}">
+                        <p>已停止</p>
+                        <p><span class="color5">{{stateStop}}</span><span>条</span></p>
+                        <p class="ratio"><span class="bg5"></span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="planList">
+            <div class="planHead">
+                <ul class="options">
+                    <li>计划任务</li>
+                    <li>作业包</li>
+                    <li>运行计划</li>
+                    <li>上次运行</li>
+                    <li>下次运行</li>
+                    <li>状态</li>
+                    <li>操作</li>
+                </ul>
+            </div>
+            <div class="planLists" id="planLists">
+                <ul>
+                    <li class="planListsLi" ng-repeat="n in planList" ng-click="selectPlan($event,n);">
+                        <ul class="options">
+                            <li title="{{n.jobName}}">{{n.jobName}}</li>
+                            <li title="{{n | jobName}}">{{n | jobName}}</li>
+                            <li title="{{n.jobTrigger | repeatDetail}}">{{n.jobTrigger | repeatDetail}}</li>
+                            <li title="{{n.lastRun | suffixTime}}">{{n.lastRun | suffixTime}}</li>
+                            <li title="{{n.nextRun | suffixTime}}">{{n.nextRun | suffixTime}}</li>
+                            <li title="{{n.state}}">{{n.state}}</li>
+                            
+                            <li>
+                                <i class="edit" title="编辑" ng-click="editPlan(n, $event);"></i>
+                                <i class="{{n.state}}" title="{{n.state | psState}}" ng-click="startOrPause(n.jobId, n.state, n, $event);"></i>
+                                <i class="now" title="立即执行" ng-click="rightNow(n.jobId, n, $event);"></i>
+                                <i class="delete" title="删除" ng-click="delJob(n.jobId, $index, $event);"></i>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="work">
+            <div class="workFlow">
+                <div class="itemTitle">
+                    <span class="itemTitleInfo">工作流 {{workFlowName}}</span>
+                    <i class="fullscreenbtn"  ng-click="fullscreen();" title="放大"></i>
+                    <i class="scalescreenbtn"  ng-click="scalescreen();" title="缩小"></i>
+                    <div><span class = "yhnSaveIcon" title="保存" ng-click="saveFile();"></span><span class="workFlowDo" title="保存" ng-click="saveFile();">保存</span></div>
+                    <div><span class = "yhnDbConnectIcon" title="DB连接" ng-click="dblink('dbLink');"></span><span class="workFlowDo" title="DB连接" ng-click="dblink('dbLink');">DB连接</span></div>
+                    <div><span class = "yhnHadoopIcon" title="Hadoop集群" ng-click="hadoopList();"></span><span class="workFlowDo" title="Hadoop集群" ng-click="hadoopList();">Hadoop集群</span></div>
+                </div>
+                <div class="workFlowBody">
+                    <div class="loading"></div>
+                    <canvas id="myCanvas"></canvas>
+                </div>
+                <!--<div class="scale">-->
+                    <!--<div class="big" title="放大"></div>-->
+                    <!--<div class="small" title="缩小"></div>-->
+                <!--</div>-->
+            </div>
+            <div class="workResult">
+                <div class="padding">
+                    <div class="itemTitle">
+                        <span>执行结果</span>
+                        <select ng-model="timeModel" ng-change="selectTime(timeModel)">
+                            <option ng-repeat="t in alltime">{{t[2] | suffixTime}}</option>
+                        </select>
+                    </div>
+                    <div class="logs">
+                        <ul>
+                            <li class="active" title="详细日志">详细日志</li>
+                            <li title="任务日志">任务日志</li>
+                            <li title="步骤日志">步骤日志</li>
+                            <!--<li title="数据日志">数据日志</li>-->
+                            <!--<li title="性能监管">性能监管</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="logInfo" id="logInfo">
+                    <div>
+                        <table class="joblogs" id="joblogs">
+                            <tr ng-repeat="y in joblog track by $index">
+                                <td>{{y}}</td>
+                            </tr>
+                        </table>
+                        <table class="tasklogs" id="tasklogs">
+                            <thead>
+                            <tr>
+                                <th>步骤名称</th>
+                                <th>读</th>
+                                <th>写</th>
+                                <th>输入</th>
+                                <th>输出</th>
+                                <th>更新</th>
+                                <th>拒绝</th>
+                                <th>错误</th>
+                                <th>结果</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="y in jobsteplog">
+                                    <td>{{y.stepname}}</td>
+                                    <td>{{y.linesRead}}</td>
+                                    <td>{{y.linesWritten}}</td>
+                                    <td>{{y.linesInput}}</td>
+                                    <td>{{y.linesOutput}}</td>
+                                    <td>{{y.linesUpdated}}</td>
+                                    <td>{{y.linesRejected}}</td>
+                                    <td>{{y.errors}}</td>
+                                    <td>{{y.logField}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="setpLogs" id="setpLogs">
+                            <thead>
+                            <tr>
+                                <th>步骤名称</th>
+                                <th>复制的记录行数</th>
+                                <th>读</th>
+                                <th>写</th>
+                                <th>输入</th>
+                                <th>输出</th>
+                                <th>更新</th>
+                                <th>拒绝</th>
+                                <th>错误</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in setpLog ">
+                                    <td>{{x.stepname}}</td>
+                                    <td>{{x.stepCopy}}</td>
+                                    <td>{{x.linesRead}}</td>
+                                    <td>{{x.linesWritten}}</td>
+                                    <td>{{x.linesInput}}</td>
+                                    <td>{{x.linesOutput}}</td>
+                                    <td>{{x.linesUpdated}}</td>
+                                    <td>{{x.linesRejected}}</td>
+                                    <td>{{x.errors}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

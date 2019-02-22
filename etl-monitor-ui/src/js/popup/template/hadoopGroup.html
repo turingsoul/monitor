@@ -1,0 +1,200 @@
+<div class="hadoopGroup popupItem" >
+    <div class="HadoopList">
+        <div class="hadoopTitle">
+            <span>管理Hadoop集群</span>
+            <span ng-click = "close();">x</span>
+        </div>
+        <div class="hadoopList1">
+            <div>
+                <span>Hadoop集群</span>
+            </div>
+            <div>
+                <div class="iconGroup">
+                    <i class="removeIcon" ng-click = "deleteHadoop();"></i>
+                    <i class="addIcon" ng-click = "addHadoop();"></i>
+                    <i class="editIcon" ng-click = "editHadoop();"></i>
+                </div>
+                <div class="hadoopListBox">
+                    <select size="10">
+                        <option title="{{x.name}}" ng-repeat="x in myHadoopList" ng-click = "getHadoopListOption($index)">{{x.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button ng-click = "close();">关闭</button>
+            </div>
+        </div>
+    </div>
+    <div class="connectHadoop" style="display: none">
+       <div class="hadoopTitle">
+            <span>配置Hadoop集群</span>
+            <span ng-click = "closeHadoop();">x</span>
+       </div>
+       <div class="hadoopContent">
+            <div class="contentGroup">
+                <div class="hadoopGroup1">
+                    <div>
+                        <span>集群名称</span>
+                        <input type="text" placeholder="请输入名称" ng-model = "newItem.name"/>
+                    </div>
+                    <div>
+                        <label>使用MapR客户端</label>
+                        <input type="checkbox" ng-model = "NewItemMapr"/>
+                    </div>
+                </div>
+                <div class="hadoopGroup2">
+                    <div>
+                        <span>HDFS</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <input type="text" ng-model = "newItem.attributes.hdfsHost"/>
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <input type="text" ng-model = "newItem.attributes.hdfsPort"/>
+                    </div>
+                    <div>
+                        <span>用户名</span>
+                        <input type="text" ng-model = "newItem.attributes.hdfsUsername"/>
+                    </div>
+                    <div>
+                        <span>密码</span>
+                        <input type="password" ng-model = "newItem.attributes.hdfsPassword" />
+                    </div>
+                </div>
+                <div class="hadoopGroup3">
+                    <div>
+                        <span>JobTracker</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <input type="text" ng-model = "newItem.attributes.jobTrackerHost"/>
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <input type="text" ng-model = "newItem.attributes.jobTrackerPort"/>
+                    </div>
+                </div>
+                <div class="hadoopGroup5">
+                    <div>
+                        <span>ZooKeeper</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <input type="text" ng-model = "newItem.attributes.zooKeeperHost"/>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.oozieUrl"/>-->
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <input type="text" ng-model = "newItem.attributes.zooKeeperPort"/>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.oozieUrl"/>-->
+                    </div>
+                </div>
+                <div class="hadoopGroup4">
+                    <div>
+                        <span>Oozie</span>
+                    </div>
+                    <div>
+                        <span>URL</span>
+                        <input type="text" ng-model = "newItem.attributes.oozieUrl"/>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonGroup">
+                <button ng-click = "closeHadoop();">取消</button>
+                <button ng-click = "createNewHadoop();">确定</button>
+            </div>
+       </div>
+    </div>
+    <div class="editMyHadoop" style="display: none">
+        <div class="hadoopTitle">
+            <span>编辑Hadoop集群</span>
+            <span ng-click = "closeEditHadoop();">x</span>
+        </div>
+        <div class="hadoopContent">
+            <div class="contentGroup">
+                <div class="hadoopGroup1">
+                    <div>
+                        <span>集群名称</span>
+                        <!--<input type="text" placeholder="请输入名称" ng-model = "myHadoopList[hadoopIndex].name"/>-->
+                        <input type="text" placeholder="请输入名称" ng-model = "currentHadoop.name"/>
+                    </div>
+                    <div>
+                        <label>使用MapR客户端</label>
+                        <input type="checkbox" ng-model = "MyMapR"/>
+                    </div>
+                </div>
+                <div class="hadoopGroup2">
+                    <div>
+                        <span>HDFS</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.hdfsHost"/>-->
+                        <input type="text" ng-model = "currentHadoop.attributes.hdfsHost"/>
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.hdfsPort"/>-->
+                        <input type="text" ng-model = "currentHadoop.attributes.hdfsPort"/>
+                    </div>
+                    <div>
+                        <span>用户名</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.hdfsUsername"/>-->
+                        <input type="text" ng-model = "currentHadoop.attributes.hdfsUsername"/>
+                    </div>
+                    <div>
+                        <span>密码</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.hdfsPassword"/>-->
+                        <input type="password" ng-model = "currentHadoop.attributes.hdfsPassword"/>
+                    </div>
+                </div>
+                <div class="hadoopGroup3">
+                    <div>
+                        <span>JobTracker</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.jobTrackerHost"/>-->
+                        <input type="text" ng-model = "currentHadoop.attributes.jobTrackerHost" />
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.jobTrackerPort"/>-->
+                        <input type="text" ng-model = "currentHadoop.attributes.jobTrackerPort"/>
+                    </div>
+                </div>
+                <div class="hadoopGroup5">
+                    <div>
+                        <span>ZooKeeper</span>
+                    </div>
+                    <div>
+                        <span>主机名/IP</span>
+                        <input type="text" ng-model = "currentHadoop.attributes.zooKeeperHost"/>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.oozieUrl"/>-->
+                    </div>
+                    <div>
+                        <span>端口</span>
+                        <input type="text" ng-model = "currentHadoop.attributes.zooKeeperPort"/>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.oozieUrl"/>-->
+                    </div>
+                </div>
+                <div class="hadoopGroup4">
+                    <div>
+                        <span>Oozie</span>
+                    </div>
+                    <div>
+                        <span>URL</span>
+                        <input type="text" ng-model = "currentHadoop.attributes.oozieUrl"/>
+                        <!--<input type="text" ng-model = "myHadoopList[hadoopIndex].attributes.oozieUrl"/>-->
+                    </div>
+                </div>
+            </div>
+            <div class="buttonGroup">
+                <button ng-click = "closeEditHadoop();">取消</button>
+                <button ng-click = "makeSureEditHadoop();">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

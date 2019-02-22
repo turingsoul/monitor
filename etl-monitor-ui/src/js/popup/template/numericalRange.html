@@ -1,0 +1,55 @@
+<div class="numericalRange NumberRange popupItem">
+    <div class="title font-blod600">
+        <span class="title-name">数值范围</span>
+        <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+    </div>
+    <div class="container">
+        <div class="inputGroup">
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">步骤名称</div>
+                <input type="text" ng-model = "numRangeName"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">输入字段</div>
+                <input type="text" ng-model = "inputField"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">输出字段</div>
+                <input type="text" ng-model = "outputField"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">缺省值(超出范围)  </div>
+                <input type="text" ng-model = "fallBackValue"/>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">范围</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click = "deleteNumRangeTr();"></i>
+                        <i class="addIcon" title="添加" ng-click = "addNewNumRangeTr();"></i>
+                    </div>
+                    <div class="numRangeTable">
+                        <table rules=rows   cellspacing=0   align=right>
+                            <tr>
+                                <th>序号</th>
+                                <th>下限</th>
+                                <th>上界</th>
+                                <th>值</th>
+                            </tr>
+                            <tr class = "numRangeTr" ng-click="selectNumRangeTr($index);" ng-repeat = "x in numRangeList">
+                                <td>{{$index+1}}</td>
+                                <td><input type="text" ng-model = "x.lower_bound"/></td>
+                                <td><input type="text" ng-model = "x.upper_bound"/></td>
+                                <td><input type="text" ng-model = "x.value"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="model-btn">
+            <input type="button" class=" myBtn" value="确定" ng-click="numRangeSave();" title="确定"/>
+            <input type="button" class=" myBtn1" value="取消" ng-click="close();" title="取消"/>
+        </div>
+    </div>
+</div>

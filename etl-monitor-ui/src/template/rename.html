@@ -1,0 +1,13 @@
+<div class="renamePopup" ng-if="folderOperateObj.renameFolderPopup">
+    <div class="rename">
+        <span>重命名</span>
+        <span>名字</span>
+        <input class="renameInput" type="text" value="{{fileOldName}}" 
+               ng-model="fileOldName">
+        <span class='renameTips hiddenTips'>不可用文件名</span>
+        <span class="handleButton">
+            <button class="cancelButton" ng-click = "folderOperateClose()">取消</button>
+            <button class="submitButton" ng-click = "renameFolderRequest(fileOldName)">确定</button>
+        </span>
+    </div>
+</div>

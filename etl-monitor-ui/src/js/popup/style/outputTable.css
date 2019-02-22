@@ -1,0 +1,290 @@
+.outputTable{
+    width:681px;
+    height:592px;
+    background:white;
+}
+.outputTitle{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.outputTitle>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.outputTitle>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.outputTable .outputContent{
+    position: absolute;
+    top: 50px;
+    height:calc(100% - 50px);
+    width:100%;
+}
+.outputTable .outputContent .outputRealContent{
+    position:absolute;
+    left:40px;
+    top:30px;
+    background:white;
+    width: 610px;
+    height: 480px;
+}
+.outputRealContent .outputUpContent{
+    width:100%;
+    height:190px;
+}
+.outputRealContent .outputCenterContent{
+    position: relative;
+    height: 230px;
+    width:100%;
+}
+.outputUpContent div:nth-child(1){
+    height: 45px;
+    width:100%;
+}
+.outputUpContent div:nth-child(1) span{
+    margin-left: 35px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.outputUpContent div:nth-child(1) input{
+    width: 300px;
+    height: 26px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border:1px solid #d8d8d8;
+}
+.outputUpContent div:nth-child(2){
+    height: 45px;
+    width:100%;
+}
+.outputUpContent div:nth-child(2) span{
+    margin-left: 43px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.outputUpContent div:nth-child(2) select{
+    width: 300px;
+    height: 28px;
+    margin-left: 7px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.outputUpContent div:nth-child(3){
+    height: 45px;
+    width:100%;
+}
+.outputUpContent div:nth-child(3) span{
+    margin-left: 36px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.outputUpContent div:nth-child(3) select{
+    width: 300px;
+    height: 28px;
+    margin-left: 7px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.outputUpContent div:nth-child(4){
+    height: 45px;
+    width:100%;
+}
+.outputUpContent div:nth-child(4) span{
+    margin-left: 48px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.outputUpContent div:nth-child(4) select{
+    width: 300px;
+    height: 28px;
+    margin-left: 7px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+/*°´Å¥×é*/
+.outputRealContent .outputButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.outputRealContent .outputButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.outputRealContent .outputButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.outputRealContent .outputButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.outputRealContent .outputButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+.outputCenterContent .clientCheck{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.outputCenterContent .clientCheck label{
+    color:#426E9B;
+}
+.outputCenterContent .clientCheck input{
+    position:absolute;
+    top:3px;
+    left:110px;
+}
+.outputCenterContent .smallButtonGroup{
+    position:absolute;
+    top: 8px;
+    right:2px;
+    width:35px;
+    height:14px;
+}
+.outputCenterContent .smallButtonGroup>i{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    background:green;
+    cursor: pointer;
+}
+.outputCenterContent .smallButtonGroup>i:nth-child(2){
+    background:url('../../../images/icon.png');
+    background-position:-302px -106px;
+}
+.outputCenterContent .smallButtonGroup>i:nth-child(1){
+    background:url('../../../images/icon.png');
+    background-position:-302px -82px;
+}
+.outputCenterContent .tableArea{
+    position:absolute;
+    right:2px;
+    top:26px;
+    width: 560px;
+    height:186px;
+    border:1px solid #D8D8D8;
+    overflow-y: scroll;
+}
+.outputCenterContent .tableArea div{
+    width:100%;
+    height:31px;
+    background:#F2F2F2;
+    border-bottom:1px solid #d8d8d8;
+}
+
+.outputCenterContent .tableArea div span{
+    display: inline-block;
+    height:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align:center;
+    line-height:31px;
+}
+.outputCenterContent .tableArea div span:nth-child(1){
+    width:25%;
+}
+.outputCenterContent .tableArea div span:nth-child(2){
+    width:36%;
+}
+.outputCenterContent .tableArea div span:nth-child(3){
+    width:37%;
+}
+.outputCenterContent .tableArea table{
+    display: inline-block;
+    width:100%;
+    height:calc(100% - 31px);
+}
+.outputCenterContent .tableArea table>tbody{
+    display: inline-block;
+    width:100%;
+    height:100%;
+}
+.outputCenterContent .tableArea table>tbody>tr{
+    display: inline-block;
+    width:100%;
+    height:41px;
+    border-bottom:1px solid #D8D8D8;
+}
+/*.outputCenterContent .tableArea table>tbody>tr:hover{
+    background:#CDEAF2;
+    cursor: pointer;
+}*/
+.outputActive{
+    background:#CDEAF2;
+}
+
+.outputCenterContent .tableArea table>tbody>tr>td{
+    display: inline-block;
+    cursor: pointer;
+    height:41px;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(1){
+    text-align: center;
+    line-height:41px;
+    width:130px;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(2){
+    line-height: 41px;
+    text-align: center;
+    width:210px;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(2) input{
+    display: inline-block;
+    width: 169px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(3){
+    line-height: 41px;
+    text-align: center;
+    width:175px;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(3)>select{
+    width: 169px;
+    height: 28px;
+    line-height: 41px;
+    text-align: center;
+}
+.outputCenterContent .tableArea table>tbody>tr>td:nth-child(3)>select>option{
+    text-align: center;
+}
+
+
+
+
+

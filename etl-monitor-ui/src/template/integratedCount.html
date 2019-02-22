@@ -1,0 +1,226 @@
+<div class = "integratedCountBox">
+    <div class="integratedTopPart">
+        <div class="integratedLogo"></div>
+        <div class="integratedTopRight">
+            <span ng-click = "closeIntegratedBox();">x</span>
+        </div>
+    </div>
+    <div class="integratedContent">
+        <div class="contentLeft"></div>
+        <!--右侧容器-->
+        <div class="contentRight">
+            <div class="realContentUp">
+                <div class="realRegionUp">
+                    <div class="searchRegionUp">
+                        <div class = "mytitle"><span>任务执行历史</span></div>
+                        <div class="selectRegionUp">
+                            <span>日期</span>
+                            <select  ng-init="selectedHis = searchHistory[3]" ng-change = "tellMeHistory1(selectedHis);" ng-model="selectedHis" ng-options="x for x in searchHistory"></select>
+                            <div id="timeSelectExecuteHis">
+                                <span>从</span>
+                                <input type="text" id="executeHistoryStart"/>
+                                <span>到</span>
+                                <input type="text" id="executeHistoryEnd"/>
+                            </div>
+                        </div>
+                        <div class="SearchButton" ng-click = "sendRequestExecuteHistory();">查询</div>
+                    </div>
+                    <div class="detailsUp">
+                        <div class="leftDetails details">
+                            <span class="detailName">
+                                执行
+                            </span>
+                            <div class = "detailNumber">
+                                <p>
+                                    <span>{{totalExecute}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                            <div class="slipper">
+                                <div>
+                                <span class = "backProgress"></span>
+                                <span class = "fontProgress" style = "width:150px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="centerDetails details">
+                            <span class="detailName">
+                                成功
+                            </span>
+                            <div class = "detailNumber">
+                                <p>
+                                    <span>{{executeSuccess}}</span>
+                                    <span >条</span>
+                                </p>
+                            </div>
+                            <div class="slipper">
+                                <div>
+                                    <span class = "backProgress"></span>
+                                    <span class = "fontProgress" style = "width:{{executeSuccess/totalExecute*150}}px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rightDetails details">
+                            <span class="detailName">
+                                失败
+                            </span>
+                            <div class = "detailNumber">
+                                <p>
+                                    <span>{{executeFail}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                            <div class="slipper">
+                                <div>
+                                    <span class = "backProgress"></span>
+                                    <span class = "fontProgress" style = "width:{{executeFail/totalExecute*150}}px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="myTable">
+                        <div class="tableHead">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td ng-click = "executeHistory2();">计划任务</td>
+                                        <td ng-click = "executeHistory3();">作业包</td>
+                                        <td ng-click = "executeHistory1();">执行时间</td>
+                                        <td ng-click = "executeHistory4();">执行结果</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tableBody">
+                            <table>
+                                <tbody>
+                                <tr ng-repeat = "item in requestResult1">
+                                    <td>{{item.jobName}}</td>
+                                    <td>{{item.kettlePackageName}}</td>
+                                    <td>{{getLocalTime(item.execTime)}}</td>
+                                    <td>{{item.success}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="realContentDown">
+                <div class="realRegionDown">
+                    <div class="searchRegionDown">
+                        <div class = "mytitle"><span>数据整合明细</span></div>
+                        <div class="selectRegionDown">
+                            <span>主题</span>
+                            <select  ng-init="selectedTheme = searchTheme[0]" ng-change = "changeTheme(selectedTheme);" ng-model="selectedTheme" ng-options="x for x in searchTheme"></select>
+                            <span>日期</span>
+                            <select ng-init="selectedHer = searchHistory2[0]" ng-change = "tellMeHistory2(selectedHer);" ng-model="selectedHer" ng-options="x for x in searchHistory2"></select>
+                            <div id="timeSelectExecuteHers">
+                                <span>从</span>
+                                <input type="text" id="dataDetailsStart"/>
+                                <span>到</span>
+                                <input type="text" id="dataDetailsEnd"/>
+                            </div>
+                        </div>
+                        <div class="SearchButton" ng-click = "sendRequestExecuteHistory2();">查询</div>
+                    </div>
+                    <div class="downDetail">
+                        <div class="downDetail1 details2">
+                            <span class="detailName2">
+                                来源表数
+                            </span>
+                            <div class = "detailNumber2">
+                                <p>
+                                    <span>{{tableInput}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="downDetail2 details2">
+                            <span class="detailName2">
+                               来源表数据量
+                            </span>
+                            <div class = "detailNumber2">
+                                <p>
+                                    <span>{{linesInputIndex}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="downDetail3 details2">
+                            <span class="detailName2">
+                                整合表数
+                            </span>
+                            <div class = "detailNumber2">
+                                <p>
+                                    <span>{{tableOutput}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="downDetail4 details2">
+                            <span class="detailName2">
+                                整合表数据量
+                            </span>
+                            <div class = "detailNumber2">
+                                <p>
+                                    <span>{{linesOutput}}</span>
+                                    <span>条</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="myTable">
+                        <div class="tableHead">
+                            <table>
+                                <tbody>
+                                <tr id = "tableOneTheme">
+                                    <td ng-click = "sortDetailOne1();">主题</td>
+                                    <td ng-click = "sortDetailOne2();">来源表数</td>
+                                    <td ng-click = "sortDetailOne3();">来源表数据量</td>
+                                    <td ng-click = "sortDetailOne4();">目标表数</td>
+                                    <td ng-click = "sortDetailOne5();">目标表数据量</td>
+                                </tr>
+                                <tr  id = "tableTwoTheme">
+                                    <td ng-click = "sortDetailTwo1();">主题</td>
+                                    <td ng-click = "sortDetailTwo2();">类型</td>
+                                    <td ng-click = "sortDetailTwo3();">表名</td>
+                                    <td ng-click = "sortDetailTwo4();">数据量（行）</td>
+                                    <td ng-click = "sortDetailTwo5();">操作时间</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tableBody">
+                            <table id="tableBody1">
+                                <tbody>
+                                <tr ng-repeat = "item in requestResult2">
+                                    <td>{{item.subject}}</td>
+                                    <td>{{item.tableInput}}</td>
+                                    <td>{{item.linesInput}}</td>
+                                    <td>{{item.tableOutput}}</td>
+                                    <td>{{item.linesOutput}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table id="tableBody2">
+                                <tbody>
+                                <tr ng-repeat = "item in requestResult3">
+                                    <td>{{item.stepname.split("_")[0]}}</td>
+                                    <td>{{item.stepname.split("_")[1]}}</td>
+                                    <td>{{item.stepname.split("_")[2]}}</td>
+                                    <td>{{item.linesInput}}</td>
+                                    <td>{{getLocalTime(item.logDate)}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myTipsBoy">
+        sldfkjsdlfkjdsf
+    </div>
+</div>

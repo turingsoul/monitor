@@ -1,0 +1,124 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+}
+html{
+    position:relative;
+    height:100%;
+}
+body{
+    height:100%;
+    background: #f1f3f7;
+    min-width: 1080px;
+    min-height: 950px;
+    background: url("./images/bg.jpg") no-repeat 100% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.login{
+    width: 550px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -250px;
+    margin-left: -275px;
+    background: url("./images/loginBg.png") no-repeat;
+}
+.head{
+    height: 80px;
+    text-align: center;
+    margin-top: 20px;
+}
+.head p{
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2dc1e9;
+}
+.loginInfo{
+    margin-top: 55px;
+}
+.loginInfo .item{
+    width: 325px;
+    height: 43px;
+    margin: 0 auto 20px;
+    border: 1px solid #d5d5d5;
+    box-sizing: border-box;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.loginInfo .active{
+    border-color: #2dc1e9;
+}
+.loginInfo .item input{
+    float: right;
+    height: 43px;
+    line-height: 43px;
+    width: 273px;
+    text-indent: 10px;
+    border: 0;
+    outline: none;
+    color: #666;
+    font-size: 16px;
+}
+.loginInfo .item .icon{
+    float: left;
+    height: 45px;
+    width: 48px;
+    background: #bbbbbb;
+    text-align: center;
+}
+.loginInfo .active .icon{
+    background: #2dc1e9;
+}
+.icon i{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-top: 13px;
+}
+.user i{
+    background: url("./images/icon_user.png");
+}
+.password i{
+    background: url("./images/icon_pwd.png");
+}
+.loginInfo .btnGroup{
+    width: 325px;
+    height: 38px;
+    margin: 0 auto;
+    text-justify: auto;
+}
+.loginInfo .btnGroup input{
+    width: 150px;
+    height: 38px;
+    background: #2dc1e9;
+    color: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.loginInfo .btnGroup .loginBtn{
+    margin-right: 21px;
+}
+.warning{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -25px 0 0 -100px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #333;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px #ccc;
+    background: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}

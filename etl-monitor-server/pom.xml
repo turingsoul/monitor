@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.xdatainsight</groupId>
+        <artifactId>etl-monitor</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>etl-monitor-server</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <target.root.dir>${project.build.directory}/etl-monitor</target.root.dir>
+        <target.kettle.plugins.dir>${target.root.dir}/webapps/etl-monitor/WEB-INF/system/kettle/plugins</target.kettle.plugins.dir>
+        <target.lib.dir>${target.root.dir}/webapps/etl-monitor/WEB-INF/lib</target.lib.dir>
+        <target.ui.dir>${target.root.dir}/webapps/etl-monitor/static</target.ui.dir>
+        <kettle.plugin.version>5.4.0.1-130</kettle.plugin.version>
+        <tomcat.version>6.0.48</tomcat.version>
+        <tomcat.dir>${project.build.directory}/apache-tomcat-${tomcat.version}</tomcat.dir>
+        <container.lib.dir>${tomcat.dir}/lib</container.lib.dir>
+        <mysql-connector-java.version>5.1.37</mysql-connector-java.version>
+        <replacer.version>1.5.2</replacer.version>
+        <commons-logging.version>1.1.3</commons-logging.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xdatainsight</groupId>
+            <artifactId>etl-monitor-webapp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <!-- unpack kettle-plugins into the proper locations -->
+                    <execution>
+                        <id>unpack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+
+                        <configuration>
+                            <artifactItems>
+                                <!-- [START] unpack kettle-plugins into /WEB-INF/system/kettle/plugins -->
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pdi-spark-plugin</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pentaho-big-data-plugin</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pentaho-cassandra-plugin</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pentaho-mongodb-plugin</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pdi-platform-utils-plugin</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>pentaho</groupId>
+                                    <artifactId>pdi-teradata-tpt-plugin-package</artifactId>
+                                    <version>${kettle.plugin.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.kettle.plugins.dir}</outputDirectory>
+                                </artifactItem>
+                                <!-- [END] unpack kettle-plugins into /WEB-INF/system/kettle/plugins -->
+                            </artifactItems>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <!-- unpack ui -->
+                    <execution>
+                        <id>unpack etl-monitor-ui</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.xdatainsight</groupId>
+                                    <artifactId>etl-monitor-ui</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.ui.dir}</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <!--  download and unpack Tomcat -->
+                    <execution>
+                        <id>unpack-tomcat</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat-zip</artifactId>
+                                    <version>${tomcat.version}</version>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}</outputDirectory>
+                                    <excludes>**/webapps/docs/**,**/webapps/examples/**,**/webapps/host-manager/**,**/webapps/manager/**,**/webapps/ROOT/**</excludes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <!-- Copy all the dependency defined with dependency tag into WEB-INF/lib folder -->
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.xdatainsight</groupId>
+                                    <artifactId>etl-monitor-dependencies</artifactId>
+                                    <version>1.0</version>
+                                    <type>zip</type>
+                                    <outputDirectory>${target.lib.dir}</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <!-- Copy all the dependency defined with dependency tag into WEB-INF/lib folder -->
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${target.lib.dir}</outputDirectory>
+                            <excludeArtifactIds>*</excludeArtifactIds>
+                            <includeArtifactIds>etl-monitor-webapp,pentaho-big-data-plugin,pentaho-hadoop-shims-api</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <!-- Copy content of tomcat to etl-monitor dir -->
+                    <execution>
+                        <id>copy-tomcat</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <outputDirectory>${target.root.dir}</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <resources>
+                                <resource>
+                                    <directory>${tomcat.dir}</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <!-- [START] copy package-res configuration
+                    files into etl-monitor dir -->
+                    <execution>
+                        <id>assemble-etl-monitor</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${target.root.dir}/webapps</outputDirectory>
+                            <overwrite>true</overwrite>
+                            <resources>
+                                <resource>
+                                    <!--  Copy from package-res/webapps -->
+                                    <directory>${basedir}/package-res/webapps</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <!-- [END] copy package-res and package-res-merged-server configuration
+                    files into assembly/target/pentaho-server -->
+
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <inherited>false</inherited>
+                <executions>
+                    <!-- chmod +x *.sh in tomcat -->
+                    <execution>
+                        <id>make-sh-executable</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <chmod file="${target.root.dir}/bin/*.sh" perm="755"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>${replacer.version}</version>
+                <inherited>false</inherited>
+                <executions>
+                    <!-- modify tomcat/conf/server.xml for UTF-8 support -->
+                    <execution>
+                        <id>replace-tomcat-tokens-server-xml</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <file>${target.root.dir}/conf/server.xml</file>
+                            <token>&lt;Connector</token>
+                            <value>&lt;Connector URIEncoding=&quot;UTF-8&quot;</value>
+                        </configuration>
+                    </execution>
+                    <!-- modify tomcat/conf/server.xml for SHUTDOWN port "9998" -->
+                    <execution>
+                        <id>replace-tomcat-shutdown-port-xml</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <file>${target.root.dir}/conf/server.xml</file>
+                            <token>\&lt;Server[ ]*(port=.*)[ ]shutdown=\&quot;SHUTDOWN\&quot;\&gt;</token>
+                            <value>\&lt;Server port=\&quot;9998\&quot; shutdown=\&quot;SHUTDOWN\&quot;\&gt;</value>
+                        </configuration>
+                    </execution>
+                    <!-- modify the tomcat/conf/context.xml to disable session persistence between restarts -->
+                    <execution>
+                        <id>replace-tomcat-regex-context-xml</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <file>${target.root.dir}/conf/context.xml</file>
+                            <token>\&lt;!--[ \r\n\t]*(\&lt;Manager[ ]*pathname=.*)[ \r\n\t]*--\&gt;</token>
+                            <value>\&lt;Manager pathname=\"\" \/\&gt;</value>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <inherited>false</inherited>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.plexus</groupId>
+                        <artifactId>plexus-archiver</artifactId>
+                        <version>3.0.2</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>distribute-etl-monitor-server</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/descriptors/assembly.xml</descriptor>
+                            </descriptors>
+                            <appendAssemblyId>false</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <inherited>false</inherited>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

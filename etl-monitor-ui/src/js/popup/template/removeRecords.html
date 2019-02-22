@@ -1,0 +1,50 @@
+<div class="removeRecords Unique popupItem">
+    <div class="title font-blod600">
+        <span class="title-name">去除重复记录</span>
+        <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+    </div>
+    <div class="container">
+        <div class="inputGroup">
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">步骤名称</div>
+                <input type="text" ng-model="fieldName"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">重定向重复记录</div>
+                <input type="checkbox" ng-model="rejectDuplicateRow" ng-change="changeDuplicateRow(rejectDuplicateRow)"/>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">用来比较的字段</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click="removeTr();"></i>
+                        <i class="addIcon" title="添加" ng-click="addUniqueTableArg();"></i>
+                    </div>
+                    <div class="tableDiv">
+                        <table rules=rows   cellspacing=0   align=right>
+                            <tr>
+                                <th>序号</th>
+                                <th>字段名称</th>
+                                <th>忽略大小写</th>
+                            </tr>
+                            <tr ng-click = 'selectTr($index, ".removeRecords table tr");' ng-repeat="x in UniqueTable">
+                                <td>{{$index + 1}}</td>
+                                <td><input type="text" ng-model="x.key"/></td>
+                                <td>
+                                    <select ng-model="x.value">
+                                        <option value="Y">Y</option>
+                                        <option value="N">N</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="model-btn">
+            <input type="button" class=" myBtn" value="确定" ng-click="saveUnique();" title="确定"/>
+            <input type="button" class=" myBtn1" value="取消" ng-click="close();" title="取消"/>
+        </div>
+    </div>
+</div>

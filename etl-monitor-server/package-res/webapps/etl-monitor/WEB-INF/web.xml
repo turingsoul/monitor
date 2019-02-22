@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>com.xdatainsight.monitor.web.http.context.PentahoSolutionSpringApplicationContext</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>spring-beans.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>objectFactory</param-name>
+        <param-value>com.xdatainsight.monitor.web.http.context.WebSpringObjectFactory</param-value>
+    </context-param>
+
+    <filter> <!-- This must be the first filter listed in the web.xml -->
+        <filter-name>Set Character Encoding Filter</filter-name>
+        <filter-class>com.xdatainsight.monitor.web.http.filters.AwareCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>ignore</param-name>
+            <param-value>yes</param-value>
+        </init-param>
+    </filter>
+
+    <!-- Pentaho Request Context Filter is use to extract the Context Path from Servlet Request and store it in the PentahoRequestContextHolder.
+    This is needed to get the relative path to the server for online content generation and requesting of resources.
+     -->
+
+    <filter>
+        <filter-name>Pentaho Request Context Filter</filter-name>
+        <filter-class>com.xdatainsight.monitor.web.http.filters.PentahoRequestContextFilter</filter-class>
+    </filter>
+
+
+    <filter>
+        <filter-name>Spring Security Filter Chain Proxy</filter-name>
+        <filter-class>org.springframework.security.util.FilterToBeanProxy</filter-class>
+        <init-param>
+            <param-name>targetBean</param-name>
+            <param-value>filterChainProxy</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Set Character Encoding Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--
+      Filter mapping for security. Note that all objects are locked down. We
+      could change this here as desired.
+    -->
+    <filter-mapping>
+        <filter-name>Spring Security Filter Chain Proxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Pentaho Request Context Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.xdatainsight.monitor.web.http.context.SpringEnvironmentSetupListener</listener-class>
+    </listener>
+    <!--   enables session and request scoped object creation in Spring -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+
+    <listener>
+        <listener-class>com.xdatainsight.monitor.web.http.session.PentahoHttpSessionListener</listener-class>
+    </listener>
+
+    <!-- NEXT TWO LISTENERS ARE ORDER DEPENDENT -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.xdatainsight.monitor.web.http.context.SolutionContextListener</listener-class>
+    </listener>
+    <!-- END OF ORDER DEPENDENCE -->
+
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>-->
+    <!--</listener>-->
+
+
+    <listener>
+        <listener-class>com.xdatainsight.monitor.web.http.session.PentahoCacheSessionListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>net.sf.ehcache.constructs.web.ShutdownListener</listener-class>
+    </listener>
+
+    <!-- insert additional listeners -->
+
+
+    <servlet>
+        <servlet-name>jaxrsEndpoint-spring</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.xdatainsight.monitor.web.http.api.resources;org.codehaus.jackson.jaxrs;org.pentaho.di.www.jaxrs</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Carte</servlet-name>
+        <servlet-class>org.pentaho.di.www.CarteServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <jsp-file>/static/login/login.html</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <jsp-file>/static/index.html</jsp-file>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>jaxrsEndpoint-spring</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Carte</servlet-name>
+        <url-pattern>/carte/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
+

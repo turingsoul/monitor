@@ -1,0 +1,139 @@
+<div class="hbaseInput popupItem" style = "display:block">
+    <div>
+        <div class="hbaseFirstLevel">
+            <span>Hbase输入</span>
+            <span ng-click = "close();">x</span>
+        </div>
+        <div class="hbaseInputContent">
+            <div class="upContent">
+                <div>
+                    <span>步骤名称</span>
+                    <input type="text" value = {{hbaseInputName}} ng-model = "hbaseInputName">
+                </div>
+                <div>
+                    <span>Hadoop集群</span>
+                    <select  ng-model="hadoopContent" ng-options="x for x in myHadoopList" ng-change = "changeItemOfHadoop();">
+                    </select>
+                </div>
+                <div>
+                    <span>HBase表名</span>
+                    <select  ng-model="hbaseTableContent" ng-options="x for x in hbaseTableList" ng-change  = "changeTableOfHBasae();"></select>
+                </div>
+                <div>
+                    <span>映射名</span>
+                    <select  ng-model="hbaseMappingContent" ng-options="x for x in hbaseMappingList"></select>
+                    <span ng-click = "createSecondHbase();" ng-show = "hbaseMappingContent==''">创建映射</span>
+                    <span ng-click = "editSecondHbase();" ng-show = "hbaseMappingContent!=''">编辑映射</span>
+                </div>
+            </div>
+            <div class="downButtonGroup">
+                <button ng-click = "close();">取消</button>
+                <button ng-click = "saveHbaseContent();">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--第二级页面-->
+    <div class="createSecondHbase">
+        <div class="secondHbaseFirstLevel">
+            <span>创建映射</span>
+            <span ng-click = "closeSecondHbase();">x</span>
+        </div>
+        <div class="secondBaseContent">
+            <div>
+                <span>映射名称</span>
+                <input type="text" value = {{hbaseMappingContent}} ng-model = "hbaseMappingContent">
+            </div>
+            <div>
+                <span>HBase表名</span>
+                <select  ng-model="hbaseTableContent" ng-options="x for x in hbaseTableList" ng-disabled = "true"></select>
+            </div>
+            <div class="smallButtonGroup">
+                <i ng-click = "addNewMappingTr1();"></i>
+                <i ng-click = "deleteMappingTr1();"></i>
+            </div>
+            <div class="hbasetableArea">
+                <div>
+                    <span>序号</span>
+                    <span>别名</span>
+                    <span>键</span>
+                    <span>列族</span>
+                    <span>列名</span>
+                    <span>类型</span>
+                </div>
+                <table>
+                    <tbody>
+                    <tr class = "mappingTr1" ng-repeat = "x in mappingArray1" ng-click='selectMappingTr1($index);'>
+                        <td> {{$index+1}}</td>
+                        <td> <input type="text" value = "{{x.alias}}" ng-model = "x.alias"></td>
+                        <td>
+                            <select ng-model = "x.key">
+                                <option value="true">Y</option>
+                                <option value="false">N</option>
+                            </select>
+                        </td>
+                        <td> <input type="text" value = "{{x.columnFamily}}" ng-model = "x.columnFamily"></td>
+                        <td> <input type="text" value = "{{x.columnName}}" ng-model = "x.columnName"></td>
+                        <td> <input type="text" value = "{{x.typeDesc}}" ng-model = "x.typeDesc"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="outputButtonGroup">
+                <button ng-click = "closeSecondHbase();">取消</button>
+                <button ng-click = "submitCreateMapping();">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--打开编辑页面-->
+    <div class="editSecondHbase">
+        <div class="secondHbaseFirstLevel">
+            <span>编辑映射</span>
+            <span ng-click = "closeSecondHbase();">x</span>
+        </div>
+        <div class="secondBaseContent">
+            <div>
+                <span>映射名称</span>
+                <input type="text" value = {{hbaseMappingContent}} ng-model = "hbaseMappingContent" ng-disabled="true">
+            </div>
+            <div>
+                <span>HBase表名</span>
+                <select  ng-model="hbaseTableContent" ng-options="x for x in hbaseTableList" ng-disabled="true"></select>
+            </div>
+            <div class="smallButtonGroup">
+                <i ng-click = "addNewMappingTr();"></i>
+                <i ng-click = "deleteMappingTr();"></i>
+            </div>
+            <div class="hbasetableArea">
+                <div>
+                    <span>序号</span>
+                    <span>别名</span>
+                    <span>键</span>
+                    <span>列族</span>
+                    <span>列名</span>
+                    <span>类型</span>
+                </div>
+                <table>
+                    <tbody>
+                    <tr class = "mappingTr" ng-repeat = "x in mappingArray" ng-click='selectMappingTr($index);'>
+                        <td> {{$index+1}}</td>
+                        <td> <input type="text" value = "{{x.alias}}" ng-model = "x.alias"></td>
+                        <td>
+                            <select ng-model = "x.key">
+                                <option value="true">Y</option>
+                                <option value="false">N</option>
+                            </select>
+                        </td>
+                        <td> <input type="text" value = "{{x.columnFamily}}" ng-model = "x.columnFamily"></td>
+                        <td> <input type="text" value = "{{x.columnName}}" ng-model = "x.columnName"></td>
+                        <td> <input type="text" value = "{{x.typeDesc}}" ng-model = "x.typeDesc"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="outputButtonGroup">
+                <button ng-click = "closeSecondHbase();">取消</button>
+                <button ng-click = "submitEditMapping();">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

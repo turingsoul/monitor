@@ -1,0 +1,252 @@
+.popup{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    min-width: 1350px;
+    min-height: 750px;
+    font: 12px "Microsoft YaHei";
+    z-index: 2;
+}
+.popupItem{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 1000;
+    display: none;
+}
+.popupItem .tableDiv{
+    width: 100%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.popup .title{
+    height: 40px;
+    background: #3d5061;
+}
+.popup .title span{
+    color: #e2e2e2;
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0 20px;
+}
+.popup .title .title-name{
+    float: left;
+}
+.popup .title .title-cancel{
+    float: right;
+    font-size: 18px;
+}
+.popup .title .title-cancel:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.popup .font-blod600{
+    font-weight: 600;
+    color: #474747;
+}
+.popup .container{
+    padding: 30px;
+}
+.popup .container input[type='text'] ,.popup .container input[type='password']{
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    text-indent: 5px;
+    color: #666;
+    height: 28px;
+    margin: 5px 0 11px 0;
+    border: 1px solid #ccc;
+}
+
+ .model-btn{
+    overflow: hidden;
+}
+ .model-btn input{
+    float: right;
+    margin-left: 20px;
+}
+ .myBtn,.myBtn1{
+    cursor: pointer;
+    background: #2e5f94;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    width: 90px;
+    height: 28px;
+    font-size: 12px;
+}
+ .myBtn:hover, .myBtn:focus:hover{
+    background: #235081;
+}
+ .myBtn:active:focus{
+    background: #153b64;
+}
+ .myBtn1{
+    background: #e3e3e3;
+    color: #a6a6a6;
+    border: 1px solid #ccc;
+}
+ .myBtn1:hover, .myBtn1:focus:hover{
+    background: #c9c9c9;
+    color: #fff;
+}
+ .myBtn1:active:focus{
+    background: #acacac;
+    color: #fff;
+}
+ .inputBox1 > div{
+    display: inline-block;
+    font-size: 14px;
+}
+.popup .inputBox1 > div:nth-child(1){
+    height: 100%;
+    vertical-align: top;
+    margin-top: 20px;
+}
+.popup .inputBox1 > div:not(:first-child){
+    position: relative;
+    margin: 20px 0 0 0;
+    width: calc(100% - 135px);
+    float: right;
+}
+.popup .container .inputItem{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.popup .container .inputBox input[type='text'], .popup .container .inputBox select{
+    width: 240px;
+    float: left;
+    margin: 0;
+    height: 28px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.popup .container .inputName{
+    width: 110px;
+    float: left;
+    text-align: right;
+    color: #333;
+    font-size: 14px;
+    line-height: 28px;
+    margin-right: 25px;
+}
+.popup .container table {
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    border-collapse: collapse;
+    text-align: center;
+    text-indent: 5px;
+}
+.popup .container table th{
+    height: 30px;
+    background: #f2f2f2;
+    color: #666;
+}
+.popup .container table tr{
+    background: #fff;
+}
+.popup .container table tr.active{
+    background: #d3e6f6;
+}
+.popup .container table input[type = 'text']{
+    margin: 5px 0;
+    width: 170px;
+}
+.popup .container .action1{
+    position: absolute;
+    right: 0;
+    top: -20px;
+}
+.popup .container .action1 i{
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: url("../../../images/icon.png") no-repeat;
+    cursor: pointer;
+}
+.popup .container .action1 .removeIcon{
+    background-position: -298px -102px;
+}
+.popup .container .action1 .addIcon{
+    background-position: -298px -78px;
+}
+.popup .container table select{
+    width: 55px;
+    height: 28px;
+    border: 1px solid #c6c6c6;
+    outline: none;
+}
+
+
+/*
+    sortRecord
+*/
+.sortRecord{
+    width: 695px;
+}
+
+/*
+    removeRecords
+*/
+.removeRecords {
+    width: 738px;
+}
+.removeRecords .tableDiv{
+    max-height: 424px;
+}
+.removeRecords .container table input[type = 'text']{
+    width: 235px;
+}
+
+/*
+    columnSplitting
+*/
+.columnSplitting{
+     width: 430px;
+ }
+.columnSplitting .container .inputGroup input[type = 'text']{
+    width: 235px;
+}
+
+/*
+    numericalRange
+*/
+.numericalRange{
+    width: 758px;
+}
+.numericalRange .container table td:not(:last-child) input{
+    width: 70px;
+}
+
+/*
+    fieldSelection
+*/
+.fieldSelection{
+    width: 710px;
+}
+.fieldSelection .tableDiv{
+    max-height: 190px;
+}
+
+/*
+    insertUpdate
+*/
+.insertUpdate{
+    width: 700px;
+}
+.insertUpdate .tableDiv{
+    max-height: 151px;
+}

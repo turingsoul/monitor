@@ -1,0 +1,66 @@
+<div class="fieldSelection SelectValues popupItem">
+    <div class="title font-blod600">
+        <span class="title-name">字段选择</span>
+        <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+    </div>
+    <div class="container">
+        <div class="inputGroup">
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">步骤名称</div>
+                <input type="text" ng-model="fieldName"/>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">选择和修改</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click="removeSelectionTable1Arg()"></i>
+                        <i class="addIcon" title="添加" ng-click="addSelectionTable1Arg()"></i>
+                    </div>
+                    <div class="tableDiv">
+                        <table rules=rows   cellspacing=0   align=right class="table1">
+                            <tr>
+                                <th>序号</th>
+                                <th>字段名称</th>
+                                <th>改名为</th>
+                                <th>长度</th>
+                                <th>精度</th>
+                            </tr>
+                            <tr ng-click = 'selectTr($index, ".fieldSelection .table1 tr");' ng-repeat="x in fieldSelectionTable1">
+                                <td>{{ $index + 1 }}</td>
+                                <td><input type="text" style="width: 105px" ng-model="x.name"/></td>
+                                <td><input type="text" style="width: 105px" ng-model="x.rename"/></td>
+                                <td><input type="text" style="width: 55px" ng-model="x.length"/></td>
+                                <td><input type="text" style="width: 55px" ng-model="x.precision"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">移除的字段</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click="removeSelectionTable2Arg();"></i>
+                        <i class="addIcon" title="添加" ng-click="addSelectionTable2Arg();"></i>
+                    </div>
+                    <div class="tableDiv">
+                        <table rules=rows   cellspacing=0   align=right class="table2">
+                            <tr>
+                                <th>序号</th>
+                                <th>字段名称</th>
+                            </tr>
+                            <tr ng-click = 'selectTr($index, ".fieldSelection .table2 tr");' ng-repeat="y in fieldSelectionTable2">
+                                <td>{{ $index + 1 }}</td>
+                                <td><input type="text" style="width: 400px" ng-model="y.name"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="model-btn">
+            <input type="button" class=" myBtn" value="确定" ng-click="saveSelection();" title="确定"/>
+            <input type="button" class=" myBtn1" value="取消" ng-click="close();" title="取消"/>
+        </div>
+    </div>
+</div>

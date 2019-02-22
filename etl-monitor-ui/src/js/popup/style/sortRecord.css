@@ -1,0 +1,27 @@
+.popup .sortRecord .sortRecordActive{
+    background:#CDEAF2;
+}
+div.sortRecordTable{
+    height:180px;
+    overflow-y: scroll;
+    border-bottom:1px solid #d8d8d8;
+    border-top:1px solid #d8d8d8;
+    border-left:1px solid #d8d8d8;
+}
+.sortRecordTable .sortRecordTableHead{
+    border-top: 1px solid rgba(0,0,0,0);
+}
+.popup  .sortRecord .sortRecordActive tr{
+    border-left:1px solid rgba(0,0,0,0);
+}
+
+.popup  .numericalRange .numRangeActive{
+    background:#CDEAF2;
+}
+.numericalRange .numRangeTable{
+    height:190px;
+    overflow-y: scroll;
+    border-bottom:1px solid #d8d8d8;
+    border-left:1px solid #d8d8d8;
+    border-top:1px solid #d8d8d8;
+}

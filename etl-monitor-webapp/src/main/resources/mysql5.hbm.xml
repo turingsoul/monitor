@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.JoblogEntity" table="joblog" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="channelId" type="java.lang.String" column="CHANNEL_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="idJob">
+            <column name="ID_JOB" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="jobname">
+            <column name="JOBNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="STATUS" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="linesRead">
+            <column name="LINES_READ" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesWritten">
+            <column name="LINES_WRITTEN" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesUpdated">
+            <column name="LINES_UPDATED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesInput">
+            <column name="LINES_INPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesOutput">
+            <column name="LINES_OUTPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesRejected">
+            <column name="LINES_REJECTED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="errors">
+            <column name="ERRORS" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="startdate">
+            <column name="STARTDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="enddate">
+            <column name="ENDDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="logdate">
+            <column name="LOGDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="depdate">
+            <column name="DEPDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="replaydate">
+            <column name="REPLAYDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="logField">
+            <column name="LOG_FIELD" sql-type="mediumtext" not-null="true"/>
+        </property>
+        <property name="executingServer">
+            <column name="EXECUTING_SERVER" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="executingUser">
+            <column name="EXECUTING_USER" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="startJobEntry">
+            <column name="START_JOB_ENTRY" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="client">
+            <column name="CLIENT" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.TranslogEntity" table="translog" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="channelId" type="java.lang.String" column="CHANNEL_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="idBatch">
+            <column name="ID_BATCH" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="transname">
+            <column name="TRANSNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="STATUS" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="linesRead">
+            <column name="LINES_READ" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesWritten">
+            <column name="LINES_WRITTEN" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesUpdated">
+            <column name="LINES_UPDATED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesInput">
+            <column name="LINES_INPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesOutput">
+            <column name="LINES_OUTPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesRejected">
+            <column name="LINES_REJECTED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="errors">
+            <column name="ERRORS" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="startdate">
+            <column name="STARTDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="enddate">
+            <column name="ENDDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="logdate">
+            <column name="LOGDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="depdate">
+            <column name="DEPDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="replaydate">
+            <column name="REPLAYDATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="logField">
+            <column name="LOG_FIELD" sql-type="mediumtext" not-null="true"/>
+        </property>
+        <property name="executingServer">
+            <column name="EXECUTING_SERVER" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="executingUser">
+            <column name="EXECUTING_USER" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="client">
+            <column name="CLIENT" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.JobsteplogEntity" table="jobsteplog" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="channelId" type="java.lang.String" column="CHANNEL_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="idBatch">
+            <column name="ID_BATCH" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="logDate">
+            <column name="LOG_DATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="transname">
+            <column name="TRANSNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="stepname">
+            <column name="STEPNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="linesRead">
+            <column name="LINES_READ" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesWritten">
+            <column name="LINES_WRITTEN" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesUpdated">
+            <column name="LINES_UPDATED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesInput">
+            <column name="LINES_INPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesOutput">
+            <column name="LINES_OUTPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesRejected">
+            <column name="LINES_REJECTED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="errors">
+            <column name="ERRORS" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="result">
+            <column name="RESULT" sql-type="tinyint(1)" not-null="true"/>
+        </property>
+        <property name="nrResultRows">
+            <column name="NR_RESULT_ROWS" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="nrResultFiles">
+            <column name="NR_RESULT_FILES" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="logField">
+            <column name="LOG_FIELD" sql-type="mediumtext" not-null="true"/>
+        </property>
+        <property name="copyNr">
+            <column name="COPY_NR" sql-type="int(11)" not-null="true"/>
+        </property>
+    </class>
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.LogchannelEntity" table="logchannel" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="channelId" type="java.lang.String" column="CHANNEL_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="idBatch">
+            <column name="ID_BATCH" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="logDate">
+            <column name="LOG_DATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="loggingObjectType">
+            <column name="LOGGING_OBJECT_TYPE" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="objectName">
+            <column name="OBJECT_NAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="objectCopy">
+            <column name="OBJECT_COPY" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="repositoryDirectory">
+            <column name="REPOSITORY_DIRECTORY" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="filename">
+            <column name="FILENAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="objectId">
+            <column name="OBJECT_ID" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="objectRevision">
+            <column name="OBJECT_REVISION" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="parentChannelId">
+            <column name="PARENT_CHANNEL_ID" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="rootChannelId">
+            <column name="ROOT_CHANNEL_ID" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.SteplogEntity" table="steplog" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="channelId" type="java.lang.String" column="CHANNEL_ID">
+            <generator class="assigned"/>
+        </id>
+        <property name="idBatch">
+            <column name="ID_BATCH" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="logDate">
+            <column name="LOG_DATE" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="transname">
+            <column name="TRANSNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="stepname">
+            <column name="STEPNAME" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="stepCopy">
+            <column name="STEP_COPY" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="linesRead">
+            <column name="LINES_READ" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesWritten">
+            <column name="LINES_WRITTEN" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesUpdated">
+            <column name="LINES_UPDATED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesInput">
+            <column name="LINES_INPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesOutput">
+            <column name="LINES_OUTPUT" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="linesRejected">
+            <column name="LINES_REJECTED" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="errors">
+            <column name="ERRORS" sql-type="bigint(20)" not-null="true"/>
+        </property>
+        <property name="logField">
+            <column name="LOG_FIELD" sql-type="mediumtext" not-null="true"/>
+        </property>
+    </class>
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.OperationlogEntity" table="operationlog" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+            <generator class="increment"/>
+        </id>
+        <property name="sessionId">
+            <column name="SessionId" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+        <property name="userId">
+            <column name="UserId" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+        <property name="ipAddr">
+            <column name="Ip_addr" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="url">
+            <column name="url" sql-type="varchar(255)" not-null="false"/>
+        </property>
+        <property name="action">
+            <column name="Action" sql-type="varchar(50)" length="50" not-null="false"/>
+        </property>
+        <property name="object">
+            <column name="Object" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+        <property name="objectType">
+            <column name="Object_Type" sql-type="varchar(100)" length="100" not-null="false"/>
+        </property>
+        <property name="contents">
+            <column name="Contents" sql-type="mediumtext" not-null="false"/>
+        </property>
+        <property name="addTime">
+            <column name="Add_time" sql-type="datetime" not-null="false"/>
+        </property>
+    </class>
+
+    <class name="com.xdatainsight.monitor.web.http.security.userrole.XdtRole" table="AUTHORITIES">
+        <id access="field" name="name" column="AUTHORITY" type="string" length="50">
+            <generator class="assigned" />
+        </id>
+        <property name="description" column="DESCRIPTION" type="string" length="100" not-null="false" />
+        <!--
+          inverse="true" means that any users added to a role's users set will not be persisted; instead, you must persist
+          by editing the other direction (i.e. add a role to the user object)
+        -->
+        <!-- lazy=false since session is closed in dao; if lazy=true, session would need to stay open beyond dao call -->
+        <set name="users" table="GRANTED_AUTHORITIES" inverse="true" order-by="USERNAME" lazy="false">
+            <key column="AUTHORITY" />
+            <many-to-many column="USERNAME" class="com.xdatainsight.monitor.web.http.security.userrole.XdtUser" />
+        </set>
+    </class>
+
+    <class name="com.xdatainsight.monitor.web.http.security.userrole.XdtUser" table="USERS">
+        <id access="field" name="username" column="USERNAME" type="string" length="50">
+            <generator class="assigned" />
+        </id>
+        <property name="password" column="PASSWORD" type="string" length="50" not-null="true" />
+        <property name="description" column="DESCRIPTION" type="string" length="100" not-null="false" />
+        <property name="enabled" column="ENABLED" type="boolean" not-null="true" />
+        <!-- lazy=false since session is closed in dao; if lazy=true, session would need to stay open beyond dao call -->
+        <set name="roles" table="GRANTED_AUTHORITIES" order-by="AUTHORITY" lazy="false">
+            <key column="USERNAME" />
+            <many-to-many column="AUTHORITY" class="com.xdatainsight.monitor.web.http.security.userrole.XdtRole" />
+        </set>
+    </class>
+
+    <class name="com.xdatainsight.monitor.web.http.api.resources.services.kettlelog.entities.PackageExecLogEntity" table="PACKAGE_EXEC_LOG" schema="kettlelog">
+        <cache usage="read-write" />
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+            <generator class="increment"/>
+        </id>
+        <property name="jobName">
+            <column name="JOB_NAME" sql-type="varchar(110)" length="110" not-null="false"/>
+        </property>
+        <property name="kettlePackageName">
+            <column name="KETTLE_PACKAGE_NAME" sql-type="varchar(255)" length="255" not-null="false"/>
+        </property>
+        <property name="success">
+            <column name="SUCCESS" sql-type="bit" length="1" not-null="false"/>
+        </property>
+        <property name="execTime">
+            <column name="EXEC_TIME" sql-type="datetime" not-null="false"/>
+        </property>
+    </class>
+
+    <query name="getScheduledJobsByName">
+        <![CDATA[select jobname,channelId,logdate from JoblogEntity where jobname=:jobName order by logdate desc ]]>
+    </query>
+    <query name="getScheduledTransByName">
+        <![CDATA[select transname,channelId,logdate from TranslogEntity where transname=:transName order by logdate desc ]]>
+    </query>
+    <query name="getJobLogByChannelId">
+        <![CDATA[from JoblogEntity where channelId=:channelId]]>
+    </query>
+    <query name="getTransLogByChannelId">
+        <![CDATA[from TranslogEntity where channelId=:channelId]]>
+    </query>
+    <query name="getJobStepLogByChannelId">
+        <![CDATA[from JobsteplogEntity where idBatch in (select distinct idJob from JoblogEntity where channelId=:channelId)]]>
+    </query>
+    <query name="getStepLogByChannelId">
+        <![CDATA[from SteplogEntity where channelId in (select channelId from LogchannelEntity where (rootChannelId=:channelId or parentChannelId=:channelId))]]>
+    </query>
+
+</hibernate-mapping>

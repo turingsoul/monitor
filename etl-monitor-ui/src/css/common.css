@@ -1,0 +1,19 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+}
+html{
+    position:relative;
+    height:100%;
+}
+body{
+    height:100%;
+    background: #f1f3f7;
+    min-width: 1350px;
+    min-height: 750px;
+}
+ul{
+    list-style: none;
+}

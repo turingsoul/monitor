@@ -1,0 +1,529 @@
+folder-tree{
+    width: 260px;
+    display: block;
+    height: 100%;
+    float: left;
+}
+folder-tree .treeFolderTitle{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+}
+ folder-tree .treeFolderHead{
+     width: 100%;
+     height: 30px;
+     line-height: 30px;
+     color: #fff;
+     font-size: 16px;
+     font-weight: bold;
+     margin-top: 30px;
+     text-indent: 15px;
+ }
+folder-tree>.treeFolder{
+    width: 100%;
+    height: 100%;
+    background: #3c4e60;
+}
+.treeFolder .operate-menu{
+    display: none;
+    position: absolute;
+    border:1px solid #ddd;
+    background-color: #fff;
+}
+ul{
+    -webkit-padding-start: 0px;
+    margin: 0;
+}
+.treeFolder .operate-menu li{
+    list-style: none;
+    height: 30px;
+    font-size: 12px;
+    color: grey;
+    line-height: 30px;
+    width: 120px;
+    cursor: pointer;
+}
+.treeFolder .operate-menu li:hover{
+    color:#000;
+}
+
+.treeFolder .operate-menu li>i{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url(../images/Popup_icon.png);
+    margin:0px 0px 0px 10px;    
+}
+.treeFolder .operate-menu li>i.newFolder{
+    background-position:-170px -20px; 
+}
+.treeFolder .operate-menu li>i.rename{
+    background-position:-170px -35px; 
+}
+.treeFolder .operate-menu li>i.upload{
+    background-position:-170px -110px; 
+}
+.treeFolder .operate-menu li>i.download{
+    background-position:-170px -98px; 
+}
+.treeFolder .operate-menu li>i.propertyFolder{
+    background-position:-170px -125px;  
+}
+.treeFolder .operate-menu li>i.clearOutCollection{
+    background-position:-170px -65px; 
+}
+.treeFolder .operate-menu li>i.clearOutTrash{
+    background-position:-170px -50px; 
+}
+.treeFolder .operate-menu li>span{
+    display: inline-block;
+    width: 80px;
+}
+.tree-folder .uploadPopup{
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -180px 0 0 -180px;
+    width: 400px;
+    height: 400px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 100;
+}
+
+ .renamePopup{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    float: left;
+    background-color: rgba(200,200,200,0.4);
+    position: absolute;
+    top: 0px;
+    left:0px;
+    overflow: hidden;
+    z-index: 10;
+}
+.renamePopup>.rename{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -180px 0 0 -180px;
+    width: 300px;
+    height: 250px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 100;
+}
+.renameInput{
+    width: 190px;
+}
+.rename>span:nth-child(1){
+    display: block;    
+    height: 40px;
+    line-height: 40px;
+    margin: 0px 0 50px 0;
+    font-size: 18px;
+    background-color: #000;
+    color: #fff;
+    width: calc(100% - 30px);
+    padding-left: 30px;
+}
+.rename>span:nth-child(2){
+    width: calc(100% - 30px);
+    padding-left: 30px;
+}
+.uploadPopup>div,.propertyPopup>div{
+	padding-left:20px;
+}
+.uploadPopup .titleName,.propertyPopup .titleName{
+	width: 380px;
+	height: 40px;
+	background-color:#000;
+    color: #fff;
+    line-height: 40px;
+}
+.propertyPopup .titleName{
+    width: 330px;
+}
+.uploadPopup, {
+    display: none;
+}
+.uploadPopup .titleName span,.propertyPopup .titleName span{
+	display: block;
+	float: left;
+	height: 40px;
+	color: #e2e2e2;
+    font-size: 16px;
+    line-height: 40px;
+}
+.uploadPopup .titleName span:nth-child(2),.propertyPopup .titleName span:nth-child(2){
+	float: right;
+	margin-right: 10px;
+	width: 20px;
+	cursor: pointer;
+	font-size:18px;
+}
+.uploadPopup div.wordsTip{
+
+    margin: 20px 0 20px 0;
+    font-size: 12px;
+    color: #000;
+    padding-right:10px;
+}
+.uploadPopup .fileOperate{
+    font-size: 12px;
+    padding-left:20px;
+}
+ .uploadPopup .operateOption{
+     font-size: 12px;
+     padding-left:20px;
+ }
+
+.tree-folder .uploadPopup .submitButton{
+	font-size: 12px;
+	cursor: pointer;
+    background: #2e5f94;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+}
+.tree-folder .uploadPopup .cancelButton{
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    margin: 30px 30px 0 0;
+    background: #e3e3e3;
+    color: #a6a6a6;
+    transition:all .1s linear;
+    -webkit-transition:all .1s linear;
+}
+.tree-folder .uploadPopup .cancelButton:hover{
+    background-color:#a6a6a6;
+    color: white;
+}
+.uploadPopup .fileOperate {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.uploadPopup .fileOperate .span {
+    display: block;
+    width: 65px;
+    float: left;
+}
+.uploadPopup .fileOperate .font-blod600 {
+    font-weight: 600;
+    color: #474747;
+}
+
+.fileOperate label {
+    width: 60px;
+    height: 30px;
+    float: right;
+}
+.fileOperate .myBtn, .fileOperate .myBtn1 {
+    cursor: pointer;
+    background: #2e5f94;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    margin-right: 15px;
+    line-height: 30px;
+}
+
+.hide {
+    display: none;
+}
+.fileOperate .filePathParam {
+    display: block;
+    float: right;
+    border: 1px solid #ccc;
+    width: 190px;
+    height: 30px;
+    box-sizing: border-box;
+    color: #666;
+    text-indent: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 40px;
+}
+.uploadPopup .setOptions span{
+    font-weight: 600; 
+    font-size: 12px;
+    color: #425874;
+    display: inline-block;
+}
+.uploadPopup .setOptions span:nth-child(1){
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-position: -42px -72px;
+}
+.uploadPopup .operateOption>div:not(:first-child){
+    margin:15px 0 15px 0;
+    font-size: 12px;
+}
+.uploadPopup .operateOption>div:not(:first-child) span{
+    display: inline-block;
+    width: 80px;
+}
+
+.uploadPopup .operateOption>div:not(:first-child) select{
+    width: 200px;
+    height: 25px;
+}
+.uploadPopup>.handleButton{
+    width: 250px;
+    float: right;
+}
+
+
+.newFolderPopup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -130px;
+    width: 300px;
+    height: 200px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.newFolderPopup span{
+    display: block;
+    padding-left: 30px;
+    font-size:14px;
+}
+
+.newFolderPopup span:nth-child(1){
+    color: #fff;
+    width: 270px;
+    padding-top: 5px;
+    height: 25px;
+    background-color: #000;
+    font: 14px "Microsoft YaHei";
+}
+.newFolderPopup span:nth-child(2){
+    font: 14px "Microsoft YaHei";
+    margin-top: 15px;
+    height: 30px;
+}
+
+.newFolderPopup .handleButton{
+    margin-top: 10px;
+    margin-left: 110px;
+}
+
+.newFolderPopup input{
+    display: inline-block;
+    margin-left:30px;
+    width: 238px;
+    height: 28px;
+    border-radius: 3px;
+    outline: none;
+    text-indent: 5px;
+    color: #666;
+    box-sizing: border-box;
+    border: 0.5px solid #A9A9A9;
+}
+.newFolderPopup .hiddenTips, .renamePopup .hiddenTips{   
+    visibility: hidden;
+}
+.newFolderPopup .renameTips, .renamePopup .renameTips{
+    margin-top: 10px;
+    color: red;
+    font-size: 12px;
+}
+.submitButton,.cancelButton{
+    font-size: 12px;
+    cursor: pointer;
+    background: #2e5f94;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    transition: all .1s linear;
+    -webkit-transition:all .1s linear;
+}
+.newFolderPopup .submitButton,.newFolderPopup .cancelButton{
+    width: 60px;
+}
+.submitButton:hover{
+    background-color: #235081;
+}
+.cancelButton{
+    background: #e3e3e3;
+    color: #a6a6a6;
+    margin-right: 10px;
+}
+
+.cancelButton:hover{
+    background-color:#a6a6a6;
+    color: white;
+}
+
+.clearoutCollection{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -180px 0 0 -180px;
+    width: 400px;
+    height: 400px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 100;
+    font-family: "Microsoft YaHei"
+}
+.clearoutCollection>div:nth-child(1){
+    width: 370px;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    line-height: 40px;
+    padding: 0 0 0 30px;
+}
+.clearoutCollection>div:nth-child(1) span{
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+}
+.clearoutCollection>div:nth-child(1) span:nth-child(1){
+    float: left;
+}
+.clearoutCollection>div:nth-child(1) span:nth-child(2){
+    float: right;
+    margin-right:20px;
+}
+.clearoutCollection>div:nth-child(2) span{
+    display: block;
+}
+.clearoutCollection>div:nth-child(2) span:nth-child(1){
+    width: 250px;
+    height: 135px;
+    background-repeat: no-repeat;
+    margin:50px 0px 0 135px;
+}
+.clearoutCollection>div:nth-child(2) span:nth-child(2){
+    width: 400px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.clearoutCollection>div:nth-child(3){
+    text-align: center;
+    margin:60px 0 0px 140px;
+}
+.propertyPopup{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -160px 0 0 -220px;
+    width: 350px;
+    height: 360px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    font-family: "Microsoft YaHei";
+}
+.propertyPopup>div:nth-child(2){
+    margin: 20px 0 20px 15px;
+}
+.propertyPopup .userInfo span{
+    display: block;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.propertyPopup .roleName span{
+    margin-top: 10px;
+}
+.propertyPopup div:nth-child(2) select{
+    width:280px;
+    height: 90px;
+}
+.propertyPopup div:nth-child(2) select option{
+   width: 280px;
+   height: 20px;
+   padding: 2px 10px 2px 10px;
+   font-size: 12px;
+   cursor: pointer;
+}
+.handleButton{
+    display: block;
+    margin:40px 0 0 50px;
+}
+
+.propertyPopup div:nth-child(2) select option:hover{
+    background-color: #CEE3F4;
+
+}
+.propertyPopup .setProperty,.propertyPopup .shareInfo{
+    display: none;
+}
+
+.setProperty .propertyTitle span{
+    display: inline-block;
+    width: 171px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.setProperty .propertyTitle span:nth-child(2){
+    border-left: 0.5px solid #D1D1D1;
+    border-bottom: 0.5px solid #D1D1D1;
+    background-color: #F1F1F1;
+}
+.setProperty .propertyTitle{
+    margin-left: -20px;
+    padding-left: 2px;
+}
+
+.setProperty .propertyInfo>span{
+    display: block;
+    color: #000;
+    font-size: 12px;
+    margin-bottom: 5px;
+}

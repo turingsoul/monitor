@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<etl-monitor>
+
+    <log-level>INFO</log-level>
+
+    <audit>
+        <auditLogFile>/AuditLog.log</auditLogFile>
+        <id_separator><![CDATA[\t]]></id_separator>
+        <auditDateFormat>yyyy/MM/dd k:mm:ss</auditDateFormat>
+    </audit>
+
+    <warn-url>HTTP://aa.com</warn-url>
+    <app-name>ETL</app-name>
+    <warn-message>{"AppName":"%s","WarnDetails":"%s","WarnLevel":"%s","WarnTime":"%s"}</warn-message>
+    <warn-level-map><![CDATA[/a=严重;/b=非常严重]]></warn-level-map>
+    <default-warn-level>非常严重</default-warn-level>
+
+
+</etl-monitor>

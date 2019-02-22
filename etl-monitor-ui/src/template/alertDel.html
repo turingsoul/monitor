@@ -1,0 +1,19 @@
+<div class = "deleteFolderBG alertDel" ng-if = "ifDel">
+    <div class = "yhnDeleteFolderName">
+        <div class = "headlineTitle">
+            <span>{{ titleDel }}</span>
+            <span ng-click = "makeDelFalse();">x</span>
+        </div>
+        <div class = "deleteTips">
+            <div class = "deleteIconBG"></div>
+			<span>
+				{{ contentDel }}
+			 </span>
+        </div>
+        <div class="buttonGroup">
+            <button ng-click = "makeDelFalse();">取消</button>
+            <button ng-click = "makeDelTrue();">确定</button>
+        </div>
+    </div>
+</div>
+

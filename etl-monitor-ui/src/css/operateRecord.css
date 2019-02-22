@@ -1,0 +1,381 @@
+.operateRecordBox{
+    position: absolute;
+    z-index: 1000;
+    left: 0px;
+    right:0px;
+    top: 0px;
+    bottom: 0px;
+    display: none;
+}
+.operateTopPart{
+    position:relative;
+    width: 100%;
+    height:65px;
+}
+.operateRecordBox .operateLogo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 260px;
+    height:65px;
+    float: left;
+}
+.operateRecordBox .operateTopRight{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background:#3c4e60;
+    height:65px;
+    width:calc(100% - 260px);
+}
+.operateRecordBox .operateTopRight>span{
+    position: absolute;
+    top: 5px;
+    right: 32px;
+    font-size: 38px;
+    color:white;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.operateRecordBox .operateContent{
+    position: absolute;
+    width:100%;
+    top: 65px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.operateContent .contentLeft{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom:0px;
+    width:260px;
+    background:rgba(255,255,255,0.2);
+}
+.operateContent .contentRight{
+    position: absolute;
+    width:calc(100% - 260px);
+    right:0px;
+    top: 0px;
+    bottom:0px;
+    background:white;
+}
+.operateContent .contentRight .operateTitle{
+    position: absolute;
+    top: 0px;
+    width:100%;
+    height: 45px;
+    background:#F3F3F3;
+    border-bottom:1px solid #C3C3C3;
+}
+.contentRight .operateTitle>span{
+    position: absolute;
+    left: 50px;
+    top: 14px;
+    font-size: 15px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*查询类型选择*/
+.realContent{
+    position: absolute;
+    top: 46px;
+    height: calc(100% - 46px);
+    width:100%;
+}
+.realContent .selectGroupUp{
+    position: absolute;
+    top: 0px;
+    width:100%;
+    height:65px;
+    background:white;
+}
+.realContent .searchRecordNow{
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    width: 90px;
+    height: 30px;
+    background:#2E5F94;
+    border:none;
+    cursor: pointer;
+    font-family: "microsoft yahei";
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.realContent .userSelect{
+    position: absolute;
+    width: 170px;
+    height: 30px;
+    top: 14px;
+    left:20px;
+}
+.realContent .userSelect>span{
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    left:14px;
+    line-height: 30px;
+}
+.realContent .userSelect>select{
+    position: absolute;
+    width: 120px;
+    height:30px;
+    right:0px;
+    padding-left: 10px;
+}
+.realContent .timeSelect{
+    position: absolute;
+    width: 170px;
+    height: 30px;
+    top: 14px;
+    left:290px;
+}
+.realContent .timeSelect>span{
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    left:14px;
+    line-height: 30px;
+}
+.realContent .timeSelect>select{
+    position: absolute;
+    width: 120px;
+    height:30px;
+    right:0px;
+    padding-left: 10px;
+}
+.selectGroupUp .timeChooseArea{
+    position: absolute;
+    left: 550px;
+    top: 12px;
+    width: 500px;
+    height: 30px;
+}
+.selectGroupUp .timeChooseArea span:nth-child(1){
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
+    left: 10px;
+}
+.selectGroupUp .timeChooseArea input:nth-child(2){
+    display: block;
+    position: absolute;
+    left: 40px;
+    width: 140px;
+    height: 28px;
+    text-align: center;
+}
+.selectGroupUp .timeChooseArea span:nth-child(3){
+    position: absolute;
+    line-height: 30px;
+    left: 196px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.selectGroupUp .timeChooseArea input:nth-child(4){
+    display: block;
+    position: absolute;
+    left: 220px;
+    width: 140px;
+    height: 28px;
+    text-align: center;
+}
+/*表格显示*/
+.realContent .tableArea{
+    position: absolute;
+    top: 65px;
+    width:100%;
+    height:calc(100% - 130px);
+    box-sizing: border-box;
+}
+/*插件显示*/
+.realContent .pagePlugin{
+    position: absolute;
+    width:100%;
+    bottom: 0px;
+    height: 65px;
+}
+#operateRecordTable{
+    right: 102px;
+    position: absolute;
+    width: 475px;
+    height: 33px;
+    color: red;
+    top: 17px;
+}
+.pagePlugin .jumpAndTotalPage{
+    position: absolute;
+    top: 23px;
+    right: 0px;
+    width: 100px;
+    height: 40px;
+}
+
+.pagePlugin .jumpAndTotalPage span:nth-child(2){
+    font-weight:bold;
+}
+.pagePlugin .jumpAndTotalPage input:nth-child(5){
+    width: 38px;
+    height: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+/*表格显示*/
+.tableArea .tableSize{
+    position: absolute;
+    height:100%;
+    left: 18px;
+    right:18px;
+    border:1px solid #BFBFBF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    min-width:984px;
+}
+.tableArea .tableSize>table:nth-child(1){
+    box-sizing: border-box;
+    border-bottom:1px solid white;
+    height: 46px;
+    width:100%;
+    background:#D8DFE5;
+    color:#333;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(1){
+    width:7.8%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(2){
+    width:12.1%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(3){
+    width:17.8%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(4){
+    width:12.1%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(5){
+    width:15.71%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(6){
+    width:8.57%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(7){
+    width:12.86%;
+}
+.tableArea .tableSize>table:nth-child(1)>tr>td:nth-child(8){
+    width:12.86%;
+}
+.tableArea .tableSize>table:nth-child(1) td{
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+.tableArea .tableSize>div:nth-child(2){
+    position: absolute;
+    top: 46px;
+    bottom: 0px;
+    width:100%;
+    overflow-y: scroll;
+}
+.tableArea .tableSize>div:nth-child(2)>table{
+    display: inline-block;
+    box-sizing: border-box;
+    width:100%;
+    margin-top: 5px;
+}
+.tableArea .tableSize>div:nth-child(2)>table>tbody{
+    display: inline-block;
+    width:100%;
+}
+.tableArea .tableSize>div:nth-child(2)>table tr{
+    line-height:31px;
+    display: inline-block;
+    width:100%;
+}
+.tableArea .tableSize>div:nth-child(2)>table tr:nth-child(even){
+    background:#F2F5F7;
+}
+.tableArea .tableSize>div:nth-child(2)>table td{
+    text-align: center;
+    height:31px;
+    display: inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(1){
+    width:7.4%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(2){
+    width:11%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(3){
+    width:12.8%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(4){
+    width:17.1%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(5){
+    width: 9.51%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(6){
+    width: 12.57%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(7){
+    width:13.66%;
+}
+.tableArea .tableSize>div:nth-child(2)>table td:nth-child(8){
+    width:13.16%;
+}
+/*错误提示*/
+.commonMessageTips1{
+    position: absolute;
+    display:none;
+    opacity:1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background:rgba(0,0,0,0);
+    transition-property: opacity;
+    transition-duration:0.4s;
+    z-index: 1000;
+}
+.commonMessageTips1>div{
+    position: absolute;
+    opacity:1;
+    top:50%;
+    left:50%;
+    max-width: 300px;
+    min-width: 250px;
+    z-index: 1000;
+    background:rgba(0,0,0,0.7);
+    box-shadow:0 0 1px black;
+    color:white;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+
+
+
+

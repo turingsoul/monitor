@@ -1,0 +1,212 @@
+
+.database-name{
+    margin: 20px 0 30px 0;
+}
+.main-body{
+    overflow: hidden;
+}
+.main-left{
+    float: left;
+}
+.main-left select{
+    width: 240px;
+    height: 268px;
+    margin: 5px 20px 0 0;
+}
+.main-left option:nth-child(even){
+    background: #fff;
+}
+.main-left option:nth-child(odd){
+    background: #f2f2f2;
+}
+.main-right{
+    float: right;
+    width: 240px;
+}
+.main-span{
+    overflow: hidden;
+}
+.main-span span{
+    float: right;
+    margin: 20px 0 20px 55px;
+    text-decoration: underline;
+    color: #2e5f94;
+}
+.main-span span:hover{
+    cursor: pointer;
+    color: #0b2949;
+}
+.hide-box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*background: rgba(200,200,200,0.4);*/
+}
+.advanced-set{
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.biaozhifu input{
+    float: left;
+    margin-top: 2px;
+}
+.biaozhifu label{
+    margin-left: 10px;
+}
+.biaozhifu .input{
+    margin-bottom: 15px;
+}
+.advanced-args{
+    margin: 40px 0 ;
+}
+.args-title{
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.remove-args,.add-args{
+    float: right;
+    width: 12px;
+    height: 12px;
+    font-weight: 900;
+    background: #999999;
+    color: #fff;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 9px;
+    font-size: 15px;
+}
+.remove-args:hover,.add-args:hover{
+    background: #777;
+    cursor: pointer;
+}
+.do-btn{
+    overflow: hidden;
+}
+.do-btn input{
+    float: right;
+    margin-left: 20px;
+}
+.alert-box{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -200px 0 0 -200px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #ccc;
+    border: 1px solid #ccc;
+}
+.alert-main{
+    text-align: center;
+    padding: 50px 0;
+    height: 210px;
+}
+.alert-main .alert-img{
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+}
+.alert-main .bg1{
+    background: url("../../../images/successLogo.png") no-repeat center center;
+}
+.alert-main .bg2{
+    background: url("../../../images/deleteLogo.png") no-repeat center center;
+}
+.alert-main p{
+    margin: 45px 0;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+}
+.alert-input input{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    vertical-align: bottom;
+}
+.args1 .tipsRed{
+    border: 1px solid #ff4242;
+}
+.connectData .model-btn{
+    margin-top: 10px;
+}
+.dblists{
+    position: relative;
+    margin: 5px 0 20px 0;
+}
+.dblists .dblistsName{
+    position: absolute;
+}
+.dblists select{
+    width: 260px;
+    height: 170px;
+    margin: 0 0 0 50px;
+    outline: none;
+}
+.dbLink .container .action{
+    overflow: hidden;
+}
+.dbLink .container .action i{
+    float: right;
+    width: 20px;
+    height: 20px;
+    background: url("../../../images/icon.png") no-repeat;
+    cursor: pointer;
+}
+.dbLink .container .action .removeIcon{
+    background-position: -298px -102px;
+}
+.dbLink .container .action .addIcon{
+    background-position: -298px -78px;
+}
+.dbLink .container .action .editIcon{
+    background-position: -298px -52px;
+}
+.dbLink .container p{
+    margin-bottom: 20px;
+}
+
+.dbLink .container table tr:nth-child(odd) {
+    background: #f2f2f2;
+}
+.dbLink .container table tr {
+    height: 28px;
+    color: #5a5a5a;
+}
+.dbLink .container table th {
+    background: #999999;
+    color: #fff;
+    height: 42px;
+}
+.dbLink .dblists option {
+    height: 21px;
+    max-width: 540px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 4px 10px 0 10px;
+}
+.dbLink .container table tr.active{
+    background: #d3e6f6;
+}
+.dbLink .myOption option{
+    height: 21px;
+    max-width: 540px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 9px 10px 0 10px;
+}

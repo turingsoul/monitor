@@ -1,0 +1,149 @@
+<div class="dbLink popupItem">
+    <div class="dbList">
+        <div class="title font-blod600">
+            <span class="title-name">管理连接</span>
+            <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+        </div>
+        <div class="container">
+            <div class="action">
+                <i title="删除" class="removeIcon" ng-click="dbDelet();"></i>
+                <i title="添加" class="addIcon" ng-click="addDb();"></i>
+                <i title="编辑" class="editIcon" ng-click="editDb();"></i>
+            </div>
+            <div class="dblists">
+                <div class="dblistsName">DB连接</div>
+                <select size="10">
+                    <option title="{{x.name}}" ng-repeat="x in allDb" ng-click="selectThis(x,$index);">{{x.name}}</option>
+                </select>
+            </div>
+            <div class="model-btn">
+                <input type="button" class="cancel myBtn" value="关闭" ng-click="close();" title="取消"/>
+            </div>
+        </div>
+    </div>
+    <div class="connectDb" style="display: none">
+        <div class="title font-blod600">
+            <span class="title-name">{{ titleInfo }}</span>
+            <span class="title-cancel" ng-click="closeDb();" title="关闭">×</span>
+        </div>
+        <div class="container">
+            <div class="args1">
+                <div class="database-name argsItem1 args-name1">
+                    <div class="font-blod600">连接名称</div>
+                    <input type="text" placeholder="请输入连接名称" ng-model="connectName"/>
+                </div>
+                <div class="main-body">
+                    <div class="main-left">
+                        <div class="font-blod600">数据库类型</div>
+                        <select size="10" class="myOption" ng-model="dbType">
+                            <option title="{{x.name}}" ng-repeat="x in typeList" ng-click="setType(x)">{{x.name}}</option>
+                            <!--<option title="MySql" selected>MySql</option>-->
+                            <!--<option title="ORACLE">ORACLE</option>-->
+                            <!--<option title="SQL Server">SQL Server</option>-->
+                            <!--<option title="DB2">DB2</option>-->
+                            <!--&lt;!&ndash;<option title="mongoDB">mongoDB</option>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<option title="cassandra">cassandra</option>&ndash;&gt;-->
+                            <!--<option title="HYE">HYE</option>-->
+                            <!--<option title="Spark">Spark</option>-->
+                            <!--<option title="others">其他数据库</option>-->
+                        </select>
+                    </div>
+                    <div class="main-right">
+                        <div class="argsItem1 database-host" ng-hide="visible">
+                            <div class="font-blod600">主机名/IP</div>
+                            <input type="text" placeholder="请输入主机名/IP" ng-model="host" ng-change="changeInput();"/>
+                        </div>
+                        <div class="argsItem1 database-databaseName" ng-hide="visible">
+                            <div class="font-blod600">数据库名</div>
+                            <input type="text" placeholder="请输入数据库名" ng-model="databaseName" ng-change="changeInput();"/>
+                        </div>
+                        <div class="argsItem1 database-port" ng-hide="visible">
+                            <div class="font-blod600">端口号</div>
+                            <input type="text" placeholder="请输入端口号" ng-model="port" ng-change="changeInput();"/>
+                        </div>
+                        <div class="argsItem2" ng-show="visible">
+                            <div class="font-blod600">自定义链接URL</div>
+                            <input type="text" placeholder="自定义链接URL" ng-model="url" ng-change="changeInput();"/>
+                        </div>
+                        <div class="argsItem2" ng-show="visible">
+                            <div class="font-blod600">自定义驱动类型名</div>
+                            <input type="text" placeholder="自定义驱动类型名" ng-model="qudong" ng-change="changeInput();"/>
+                        </div>
+                        <div class="database-input database-username">
+                            <div class="font-blod600">用户名</div>
+                            <input type="text" placeholder="请输入用户名" ng-model="username" ng-change="changeInput();"/>
+                        </div>
+                        <div class="database-input database-password">
+                            <div class="font-blod600">密码</div>
+                            <input type="password" placeholder="请输入密码" ng-model="password" ng-change="changeInput();"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-span">
+                <span title="高级设置" ng-click="advanceSet();">高级设置</span>
+                <span title="测试连接" ng-click="testLink();">测试连接</span>
+            </div>
+            <div class="model-btn">
+                <input type="button" class="next myBtn" value="确定" ng-click="complete();" title="确定"/>
+                <input type="button" class="cancel myBtn1" value="取消" ng-click="closeDb();" title="取消"/>
+            </div>
+        </div>
+        <div class="hide-box hide">
+            <div class="advanced-set hide" id="advanced-set">
+                <div class="title font-blod600">
+                    <span class="title-name">高级设置</span>
+                    <span class="title-cancel" ng-click="closeAlert();" title="关闭">×</span>
+                </div>
+                <div class="container">
+                    <div class="biaozhifu">
+                        <p class="font-blod600">标识符</p>
+                        <div class="input">
+                            <label><input type="checkbox" ng-model="quoteAllFields"/>为数据库对象加上定界符</label>
+                        </div>
+                        <div class="input">
+                            <label><input type="checkbox" ng-model="toUpperCase" ng-change="uporlow(true);"/>强制使用大写</label>
+                        </div>
+                        <div class="input">
+                            <label><input type="checkbox" ng-model="toLowerCase" ng-change="uporlow(false);"/>强制使用小写</label>
+                        </div>
+                    </div>
+                    <div class="advanced-args">
+                        <div class="args-title">
+                            <span class="font-blod600">参数</span>
+                            <span class="remove-args" ng-click="removeArgs();">-</span>
+                            <span class="add-args" ng-click="addArgs();">+</span>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>名称</th>
+                                <th>值</th>
+                            </tr>
+                            <tr ng-repeat="x in tr" ng-click = 'selectTr($index, ".dbLink .advanced-set table tr");'>
+                                <td><input style="width:auto;height: auto;margin: 0;" type="text" ng-model="x.name"/></td>
+                                <td><input style="width: auto;height: auto;margin: 0;" type="text" ng-model="x.content"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="do-btn">
+                        <input type="button" class="myBtn" value="确定" title="确定" ng-click="saveExtraData();"/>
+                        <input type="button" class="myBtn1" value="取消"  ng-click="closeAlert();" title="取消"/>
+                    </div>
+                </div>
+            </div>
+            <div class="alert-box hide">
+                <div class="title font-blod600">
+                    <span class="title-name">连接测试</span>
+                    <span class="title-cancel" ng-click="closeAlert();">×</span>
+                </div>
+                <div class="alert-main">
+                    <div class="alert-img"></div>
+                    <p>dsfasfasfdaaaaaaaa</p>
+                </div>
+                <div class="alert-input">
+                    <input type="button" class="myBtn" value="关闭" ng-click="closeAlert();"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

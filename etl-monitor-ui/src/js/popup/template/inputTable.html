@@ -1,0 +1,27 @@
+<div class="inputTable popupItem">
+    <div class="inputTableTitle">
+        <span>表输入</span>
+        <span ng-click = "close();">x</span>
+    </div>
+    <div class="inputTableContent">
+        <div class="upContent">
+            <div>
+                <span>步骤名称</span>
+                <input type="text" value = {{inputTableName}} ng-model = "inputTableName">
+            </div>
+            <div>
+                <span>DB连接</span>
+                <select  ng-model="dblinkContent" ng-options="x for x in allDbList">
+                </select>
+            </div>
+            <div>
+                <span>SQL语句</span>
+                <textarea ng-model = "inputTableSql">{{inputTableSql}}</textarea>
+            </div>
+        </div>
+        <div class="downButtonGroup">
+            <button ng-click = "close();">取消</button>
+            <button ng-click = "saveInputTable();">确定</button>
+        </div>
+    </div>
+</div>

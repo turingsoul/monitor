@@ -1,0 +1,30 @@
+<div class="columnSplitting SplitFieldToRows3 popupItem">
+    <div class="title font-blod600">
+        <span class="title-name">列拆分</span>
+        <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+    </div>
+    <div class="container">
+        <div class="inputGroup">
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">步骤名称</div>
+                <input type="text" ng-model="fieldName"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">要拆分的字段</div>
+                <input type="text" ng-model="splitfield"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">分隔符</div>
+                <input type="text" ng-model="delimiter"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">新字段名</div>
+                <input type="text" ng-model="newfield"/>
+            </div>
+        </div>
+        <div class="model-btn">
+            <input type="button" class=" myBtn" value="确定" ng-click="fieldBtn();" title="确定"/>
+            <input type="button" class=" myBtn1" value="取消" ng-click="close();" title="取消"/>
+        </div>
+    </div>
+</div>

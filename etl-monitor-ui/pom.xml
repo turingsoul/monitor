@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.xdatainsight</groupId>
+    <artifactId>etl-monitor</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>etl-monitor-ui</artifactId>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <!-- TODO: Update javascript-test profile in the parent poms. This plugin declaration shouldn't be needed.
+           We are overriding the executions of the frontend-maven-plugin in the javascript-test profile in order
+           to be able to use the filtered karma configuration file.  -->
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>javascript-npm-install</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+              <npmRegistryURL>https://registry.npm.taobao.org</npmRegistryURL>
+              <workingDirectory>${frontend-maven-plugin.installDirectory}</workingDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>javascript-build</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>webpack</goal>
+            </goals>
+            <configuration>
+              <arguments>--output-path ${project.build.directory}/${project.artifactId}</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${maven-assembly-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-archiver</artifactId>
+            <version>3.0.2</version>
+          </dependency>
+        </dependencies>
+
+        <executions>
+          <execution>
+            <id>distribute-etl-monitor-ui</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>assembly/assembly.xml</descriptor>
+              </descriptors>
+              <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

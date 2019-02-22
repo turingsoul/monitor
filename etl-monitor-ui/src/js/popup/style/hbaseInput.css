@@ -1,0 +1,818 @@
+.hbaseInput>div:nth-child(1){
+    width:430px;
+    height:387px;
+    background:white;
+}
+.hbaseFirstLevel{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.hbaseFirstLevel>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.hbaseFirstLevel>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.hbaseInput .hbaseInputContent{
+    position: absolute;
+    top: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.hbaseInputContent .upContent>div:nth-child(1){
+    position: relative;
+    margin-top: 38px;
+    margin-left:35px;
+    width:365px;
+    height:50px;
+}
+.hbaseInputContent .upContent>div:nth-child(1) span{
+    margin-left: 35px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(1) input{
+    width:240px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+
+.hbaseInputContent .upContent>div:nth-child(2){
+    position: relative;
+    margin-left:35px;
+    width:365px;
+    height:50px;
+}
+.hbaseInputContent .upContent>div:nth-child(2) span{
+    margin-left: 11px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(2) select{
+    width:240px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInputContent .upContent>div:nth-child(3){
+    position: relative;
+    margin-left:35px;
+    width:365px;
+    height:50px;
+}
+.hbaseInputContent .upContent>div:nth-child(3) span{
+    margin-left: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(3) select{
+    width:240px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInputContent .upContent>div:nth-child(4){
+    position: relative;
+    margin-left:35px;
+    width:365px;
+    height:50px;
+}
+.hbaseInputContent .upContent>div:nth-child(4) span:nth-child(1){
+    margin-left: 49px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(4) span:nth-child(3){
+    position: absolute;
+    cursor: pointer;
+    text-decoration:underline;
+    margin-left:15px;
+    color:#2D6193;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(4) span:nth-child(4){
+    cursor: pointer;
+    text-decoration:underline;
+    margin-left:15px;
+    color:#2D6193;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInputContent .upContent>div:nth-child(4) select{
+    width:160px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup{
+    position: absolute;
+    width:calc(100% - 98px);
+    height:30px;
+    right:54px;
+    bottom:38px;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.hbaseInput .hbaseInputContent .downButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+
+.createSecondHbase{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-377px;
+    margin-top: -240px;
+    width:754px;
+    height:480px;
+    background:white;
+    z-index: 1000;
+    display: none;
+
+}
+/*创建映射*/
+.secondHbaseFirstLevel{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.secondHbaseFirstLevel>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.secondHbaseFirstLevel>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.secondBaseContent{
+    position: absolute;
+    top: 85px;
+    left: 40px;
+    width:680px;
+    height: 360px;
+}
+.hbaseInput .secondBaseContent .downButtonGroup{
+    position: absolute;
+    width:calc(100% - 98px);
+    height:30px;
+    right:0px;
+    bottom:0px;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1){
+    width:100%;
+    height:55px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1) span{
+    margin-left: 35px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1) input{
+    width:300px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2){
+    width:100%;
+    height:55px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2) span{
+    margin-left: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2) select{
+    width:300px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3){
+    position: absolute;
+    right: 0px;
+    width:32px;
+    height:15px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    cursor: pointer;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i:nth-child(2){
+    background:url('../../../images/icon.png');
+    background-position:-302px -106px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i:nth-child(1){
+    background:url('../../../images/icon.png');
+    background-position:-302px -82px;
+}
+
+.secondBaseContent .hbasetableArea{
+    position:absolute;
+    right:2px;
+    top:130px;
+    width: 580px;
+    height:186px;
+    border:1px solid #D8D8D8;
+}
+.secondBaseContent .hbasetableArea div{
+    width:100%;
+    height:31px;
+    background:#F2F2F2;
+    border-bottom:1px solid #d8d8d8;
+}
+
+.secondBaseContent .hbasetableArea div span{
+    display: inline-block;
+    height:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align:center;
+    line-height:31px;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(1){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(2){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(3){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(4){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(5){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(6){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea table{
+    display: inline-block;
+    width:100%;
+    height:calc(100% - 31px);
+}
+.secondBaseContent .hbasetableArea table>tbody{
+    display: inline-block;
+    width:100%;
+    height:100%;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr{
+    display: inline-block;
+    width:100%;
+    height:41px;
+    border-bottom:1px solid #D8D8D8;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr:hover{
+    cursor: pointer;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td{
+    display: inline-block;
+    cursor: pointer;
+    height:41px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(1){
+    text-align: center;
+    line-height:41px;
+    width:80px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(2){
+    line-height: 41px;
+    text-align: center;
+    width:120px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(2) input{
+    display: inline-block;
+    width: 104px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3){
+    line-height: 41px;
+    text-align: center;
+    width:64px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3)>select{
+    width: 46px;
+    height: 28px;
+    line-height: 41px;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3)>select>option{
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(4){
+    line-height: 41px;
+    text-align: center;
+    width:100px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(4)>input{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(5){
+    line-height: 41px;
+    text-align: center;
+    width:100px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(5)>input{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(6){
+    line-height: 41px;
+    text-align: center;
+    width:70px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(6)>input{
+    display: inline-block;
+    width: 46px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+/*按钮组*/
+.secondBaseContent .outputButtonGroup{
+    position: absolute;
+    right: 0px;
+    bottom:20px;
+}
+.secondBaseContent .outputButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+/*编辑映射*/
+.editSecondHbase{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-377px;
+    margin-top: -240px;
+    width:754px;
+    height:480px;
+    background:white;
+    z-index: 1000;
+    display: none;
+
+}
+/*创建映射*/
+.secondHbaseFirstLevel{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.secondHbaseFirstLevel>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.secondHbaseFirstLevel>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.secondBaseContent{
+    position: absolute;
+    top: 85px;
+    left: 40px;
+    width:680px;
+    height: 360px;
+}
+.hbaseInput .secondBaseContent .downButtonGroup{
+    position: absolute;
+    width:calc(100% - 98px);
+    height:30px;
+    right:0px;
+    bottom:0px;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.hbaseInput .secondBaseContent .downButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1){
+    width:100%;
+    height:55px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1) span{
+    margin-left: 35px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(1) input{
+    width:300px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2){
+    width:100%;
+    height:55px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2) span{
+    margin-left: 22px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 40px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(2) select{
+    width:300px;
+    height:30px;
+    margin-left: 8px;
+    text-indent: 5px;
+    border: 1px solid #d8d8d8;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3){
+    position: absolute;
+    right: 0px;
+    width:32px;
+    height:15px;
+    background:white;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    cursor: pointer;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i:nth-child(2){
+    background:url('../../../images/icon.png');
+    background-position:-302px -106px;
+}
+.hbaseInput .secondBaseContent>div:nth-child(3)>i:nth-child(1){
+    background:url('../../../images/icon.png');
+    background-position:-302px -82px;
+}
+
+.secondBaseContent .hbasetableArea{
+    position:absolute;
+    right:2px;
+    top:130px;
+    width: 580px;
+    height:186px;
+    border:1px solid #D8D8D8;
+    overflow-y: scroll;
+}
+.secondBaseContent .hbasetableArea div{
+    width:100%;
+    height:31px;
+    background:#F2F2F2;
+    border-bottom:1px solid #d8d8d8;
+}
+
+.secondBaseContent .hbasetableArea div span{
+    display: inline-block;
+    height:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align:center;
+    line-height:31px;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(1){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(2){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(3){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(4){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(5){
+    width:20%;
+}
+.secondBaseContent .hbasetableArea div span:nth-child(6){
+    width:10%;
+}
+.secondBaseContent .hbasetableArea table{
+    display: inline-block;
+    width:100%;
+    height:calc(100% - 31px);
+}
+.secondBaseContent .hbasetableArea table>tbody{
+    display: inline-block;
+    width:100%;
+    height:100%;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr{
+    display: inline-block;
+    width:100%;
+    height:41px;
+    border-bottom:1px solid #D8D8D8;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr:hover{
+    background:#CDEAF2;
+    cursor: pointer;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td{
+    display: inline-block;
+    cursor: pointer;
+    height:41px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(1){
+    text-align: center;
+    line-height:41px;
+    width:80px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(2){
+    line-height: 41px;
+    text-align: center;
+    width:120px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(2) input{
+    display: inline-block;
+    width: 104px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3){
+    line-height: 41px;
+    text-align: center;
+    width:64px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3)>select{
+    width: 46px;
+    height: 28px;
+    line-height: 41px;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(3)>select>option{
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(4){
+    line-height: 41px;
+    text-align: center;
+    width:100px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(4)>input{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(5){
+    line-height: 41px;
+    text-align: center;
+    width:100px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(5)>input{
+    display: inline-block;
+    width: 80px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(6){
+    line-height: 41px;
+    text-align: center;
+    width:70px;
+}
+.secondBaseContent .hbasetableArea table>tbody>tr>td:nth-child(6)>input{
+    display: inline-block;
+    width: 46px;
+    height: 28px;
+    border:1px solid #d8d8d8;
+    text-align: center;
+}
+/*按钮组*/
+.secondBaseContent .outputButtonGroup{
+    position: absolute;
+    right: 0px;
+    bottom:20px;
+}
+.secondBaseContent .outputButtonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.secondBaseContent .outputButtonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+
+.mappingActive{
+    background:#CDEAF2;
+}
+.mappingActive1{
+    background:#CDEAF2;
+}

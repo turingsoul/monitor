@@ -1,0 +1,186 @@
+<div class="treeFolder" ng-controller = "fileController">
+	<div class="treeFolderTitle">ZWZ数据整合监控平台</div>
+	<div class="treeFolderHead">资源目录</div>
+
+	<treecontrol class="tree-classic" tree-model="dataTree" options="opt" id="tree">
+   		{{node.file.name}}
+	</treecontrol>
+
+	<new-plan></new-plan>
+	<div class="operate-menu">
+		<ul>
+			<li ng-repeat = "node in operateList">
+				<i class={{node.operateMenuClass}}></i>
+				<span ng-click = "folderOperateMeans(node)">{{node.operateMenuParam}}</span>
+			</li>                             
+		</ul>
+    </div>
+	<!--目录树 新建-->
+	<div ng-show = "createNewFolder" class="yhnCreateNewTree yhnCommonBG">
+		<div>
+			<!--新建目录-->
+			<div class = "yhnCommonHead">
+				<span>新建目录</span>
+				<span ng-click = "hideCreateNewFolder();">X</span>
+			</div>
+			<div class = "yhnCommonContent">
+				<button class = "yhnCancelButton" ng-click = "hideCreateNewFolder();">取消</button>
+				<button>确定</button>
+			</div>
+		</div>
+	</div>
+	<!--文件弹出层-->
+	<div class = "yhnFileBounce" ng-controller = "fileController" ng-click = "hideFileShelter($event)">
+		<div class = "yhnFileList">
+			<div class="yhnFileName" ng-click = "showRenameFile();">
+				<i class = "yhnRenameIcon"></i>
+				<span>重命名</span>
+			</div>
+			<div class="yhnFileDelete" ng-click = "showDeleteFile();">
+				<i class = "yhnDeleteIcon"></i>
+				<span>删除</span>
+			</div>
+			<div class="yhnFilePlan" ng-click = "showTaskPlan();">
+				<i class = "yhnFileIcon"></i>
+				<span>计划</span>
+			</div>
+		</div>
+	</div>
+	<!--文件夹弹出层-->
+	<div class = "yhnFolderBounce"  ng-click = "hideFolderShelter($event)">
+		<div class = "yhnFolderList">
+			<div class="yhnCreateFolder" ng-click = "showCreateFolder();">
+				<i class = "yhnCreateIcon"></i>
+				<span>新建目录</span>
+			</div>
+			<div class="yhnFolderRename" ng-click = "renameFolder();">
+				<i class = "yhnRenameIcon"></i>
+				<span>重命名</span>
+			</div>
+			<div class="yhnFolderDelete" ng-click = "deleteFolder();">
+				<i class = "yhnFolderIcon"></i>
+				<span>删除</span>
+			</div>
+		</div>
+	</div>
+	<!--新建目录弹出层-->
+	<div class = "createFolderBG">
+		<div class = "yhnInputFolderName">
+			<div class = "headlineTitle">
+				<span>新建目录</span>
+				<span ng-click = "hideCreateFolder();">x</span>
+			</div>
+			<div class="inputArea">
+				<span>名称</span>
+				<input type="text" placeholder="请输入名称" ng-model = "inputFolderName" class = "inputBoxCreateFolder" ng-keydown = "myKeyUp($event);"/>
+				<span class = "folderCreateTips"  ng-show = "checkSlash(inputFolderName)" >
+					<i></i><span>您输入的名称不能包括“/”、“\”或者“.”符号</span>
+				</span>
+				<span class = "folderCreateTips1" ng-show = "inputFolderName.length==0&&foldernameActive">
+					<i></i><span>请输入名称</span>
+				</span>
+			</div>
+			<div class="buttonGroup">
+				<button ng-click = "hideCreateFolder();">取消</button>
+				<button ng-click = "submitCreateFolder();">确定</button>
+			</div>
+		</div>
+	</div>
+	<!--目录重命名弹出层-->
+	<div class = "renameFolderBG">
+		<div class = "yhnRenameFolderName">
+			<div class = "headlineTitle">
+				<span>重命名</span>
+				<span ng-click = "hideRenameFolder();">x</span>
+			</div>
+			<div class="inputArea">
+				<span>名称</span>
+				<input type="text" placeholder="请输入名称" ng-model = "renameFolderName" class = "renameFolderInput" ng-keydown = "renameKeyUp($event);"/>
+				<span class = "folderCreateTips"  ng-show = "checkSlash(renameFolderName)">
+					<i></i> <span>您输入的名称不能包括“/”、“\”或者“.”符号</span>
+				</span>
+				<span class = "folderCreateTips1" ng-show = "renameFolderName.length == 0&&renamefoldernameActive">
+					 <i></i><span>请输入名称</span>
+				</span>
+			</div>
+			<div class="buttonGroup">
+				<button ng-click = "hideRenameFolder();">取消</button>
+				<button ng-click = "submitRenameFolder();">确定</button>
+			</div>
+		</div>
+	</div>
+	<!--目录删除弹出层-->
+	<div class = "deleteFolderBG">
+		<div class = "yhnDeleteFolderName">
+			<div class = "headlineTitle">
+				<span>删除文件夹</span>
+				<span ng-click = "hideDeleteFolder();">x</span>
+			</div>
+			<div class = "deleteTips">
+				<div class = "deleteIconBG"></div>
+				<span>
+					目录中所有内容及其相关的计划任务都将被删除！确认要删除目录<span>{{currentChoosedFolder}}</span>吗？
+				 </span>
+			</div>
+			<div class="buttonGroup">
+				<button ng-click = "hideDeleteFolder();">取消</button>
+				<button ng-click = "submitDeleteFolder();">确定</button>
+			</div>
+		</div>
+	</div>
+	<!--删除动画-->
+	<div class = "deleteCartonBG">
+		<div class="deleteCarton">
+			<div class="object"></div>
+			<div class="object"></div>
+			<div class="object"></div>
+		</div>
+	</div>
+	<!--提示窗口-->
+	<div class="commonMessageTips">
+		<div></div>
+	</div>
+	<!--文件重命名弹出层-->
+	<div class = "renameFileBG" ng-controller = "fileController">
+		<div class = "yhnRenameFileName">
+			<div class = "headlineTitle">
+				<span>重命名</span>
+				<span ng-click = "hideRenameFile();">x</span>
+			</div>
+			<div class="inputArea">
+				<span>名称</span>
+				<input type="text" placeholder="请输入名称" ng-model = "renameFileName"  class = "renameFileInput"  ng-keydown = "renameFileKeyUp($event);"/>
+				<span class = "folderCreateTips"  ng-show = "checkSlash(renameFileName)" >
+					<i></i><span>您输入的名称不能包括“/”、“\”或者“.”符号</span>
+				</span>
+				<span class = "folderCreateTips1" ng-show = "renameFileName.length == 0&&renamefilenameActive">
+					<i></i><span>请输入名称</span>
+				</span>
+			</div>
+			<div class="buttonGroup">
+				<button ng-click = "hideRenameFile();">取消</button>
+				<button ng-click = "submitRenameFile();">确定</button>
+			</div>
+		</div>
+	</div>
+	<!--文件删除弹出层-->
+	<div class = "deleteFileBG">
+		<div class = "yhnDeleteFileName">
+			<div class = "headlineTitle">
+				<span>删除文件</span>
+				<span ng-click = "hideDeleteFile();">x</span>
+			</div>
+			<div class = "deleteTips">
+				<div class = "deleteIconBG"></div>
+				<span>
+					确认要删除文件<span>{{currentChoosedFile}}</span>吗？
+				 </span>
+			</div>
+			<div class="buttonGroup">
+				<button ng-click = "hideDeleteFile();">取消</button>
+				<button ng-click = "submitDeleteFile();">确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+

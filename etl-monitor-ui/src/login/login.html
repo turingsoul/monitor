@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache,must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ZWZ数据整合监控平台 - 登录</title>
+    <link rel="stylesheet" href="static/login/login.css"/>
+</head>
+<body>
+    <div class="login">
+        <div class="head">
+            <p>ZWZ数据整合监控平台</p>
+            <p>监控系统登录</p>
+        </div>
+        <div class="loginInfo">
+            <form method="POST" action="j_spring_security_check">
+                <div class="item">
+                    <div class="icon user">
+                        <i></i>
+                    </div>
+                    <input type="text" name = "j_username" placeholder="请输入用户名"/>
+                </div>
+                <div class="item">
+                    <div class="icon password">
+                        <i></i>
+                    </div>
+                    <input type="password" name = "j_password" placeholder="请输入密码"/>
+                </div>
+                <div class="btnGroup">
+                    <input type="submit" value="登录" class="loginBtn"/>
+                    <input type="reset" value="重置"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="warning">用户名或密码错误!</div>
+</body>
+<script src="static/login/jquery.min.js"></script>
+<script src="static/login/login.js"></script>
+<script type="text/javascript">
+    var url = window.location.href;
+    var erroNum = url.substring(url.lastIndexOf("=")+1,url.length);
+    if (erroNum === "1" || erroNum === "2"){
+        $(".warning").fadeIn();
+        setTimeout(function(){
+            $(".warning").fadeOut();
+            window.location.href = url.substring(0, url.indexOf('?'));
+        },2000);
+    }
+</script>
+</html>

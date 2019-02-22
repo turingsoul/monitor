@@ -1,0 +1,107 @@
+<div class="insertUpdate InsertUpdate popupItem">
+    <div class="title font-blod600">
+        <span class="title-name">插入更新</span>
+        <span class="title-cancel" ng-click="close();" title="关闭">×</span>
+    </div>
+    <div class="container">
+        <div class="inputGroup">
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">步骤名称</div>
+                <input type="text" ng-model="fieldName"/>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">DB连接</div>
+                <select ng-model="connName" ng-change="changeDb(connName);">
+                    <option ng-repeat="db in dblist">{{ db.name }}</option>
+                </select>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">目标模式</div>
+                <select ng-model="schemaVal" ng-change="changeSchemas(schemaVal);">
+                    <option ng-repeat="schema in schemasList">{{ schema }}</option>
+                </select>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">目标表</div>
+                <select ng-model="tableVal" ng-change="changeTable(tableVal);">
+                    <option ng-repeat="table in tableList">{{ table }}</option>
+                </select>
+            </div>
+            <div class="inputItem inputBox">
+                <div class="inputName font-blod600">不执行更新</div>
+                <input type="checkbox" ng-model="update_bypassed" ng-change="changeUpdatePass(update_bypassed);"/>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">查询条件</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click="delConditon();"></i>
+                        <i class="addIcon" title="添加" ng-click="addConditon();"></i>
+                    </div>
+                    <div class="tableDiv">
+                        <table rules=rows   cellspacing=0   align=right class="conditonTable">
+                            <tr>
+                                <th>序号</th>
+                                <th>表字段</th>
+                                <th>比较符</th>
+                                <th>流字段</th>
+                            </tr>
+                            <tr ng-repeat="conditon in conditonList" ng-click='selectTr($index, ".insertUpdate .conditonTable tr")'>
+                                <td>{{ $index + 1 }}</td>
+                                <td>
+                                    <select style="width: 170px" ng-model="conditon.field">
+                                        <option ng-repeat="fields in conditon.tableFieldList">{{ fields }}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select ng-model="conditon.condition">
+                                        <option ng-repeat="optionItem in optionList track by $index">{{ optionItem }}</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" ng-model="conditon.name"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="inputItem inputBox1">
+                <div class="inputName font-blod600">更新字段</div>
+                <div>
+                    <div class="action1">
+                        <i class="removeIcon" title="删除" ng-click="delUpdate();"></i>
+                        <i class="addIcon" title="添加" ng-click="addUpdate();"></i>
+                    </div>
+                    <div class="tableDiv">
+                        <table rules=rows   cellspacing=0   align=right class="updateTable">
+                            <tr>
+                                <th>序号</th>
+                                <th>表字段</th>
+                                <th>流字段</th>
+                                <th>更新</th>
+                            </tr>
+                            <tr ng-repeat="update in updateList" ng-click='selectTr($index, ".insertUpdate .updateTable tr");'>
+                                <td>{{ $index + 1 }}</td>
+                                <td>
+                                    <select style="width: 170px" ng-model="update.name">
+                                        <option ng-repeat="fields in update.tableFieldList">{{ fields }}</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" ng-model="update.rename"/></td>
+                                <td>
+                                    <select ng-model="update.update">
+                                        <option value="N">N</option>
+                                        <option value="Y">Y</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="model-btn">
+            <input type="button" class=" myBtn" value="确定" ng-click="saveInsertUpdate();" title="确定"/>
+            <input type="button" class=" myBtn1" value="取消" ng-click="close();" title="取消"/>
+        </div>
+    </div>
+</div>

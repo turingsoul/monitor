@@ -1,0 +1,1550 @@
+.redBorder{
+    border:1px solid red;
+}
+treecontrol {
+    /* prevent user selection */
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* default */
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #9da5ad;
+    height: calc(100% - 140px);
+    display: block;
+    overflow: auto;
+    font-weight: bold;
+}
+treecontrol::-webkit-scrollbar
+{
+    width: 5px;
+    height: 5px;
+}
+treecontrol::-webkit-scrollbar-track
+{
+    /*-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);*/
+    /*border-radius: 10px;*/
+    background-color: #3c4e60;
+}
+
+treecontrol::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+    background-color: #cad1d7;
+}
+treecontrol ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    overflow: hidden;
+    width: 100%;
+}
+
+treecontrol li {
+    position: relative;
+    line-height: 50px;
+    padding-left: 15px;
+}
+/*treecontrol li:hover{*/
+    /*background: #2cc1e9;*/
+    /*color: #fff;*/
+    /*cursor: pointer;*/
+/*}*/
+treecontrol li.tree-expanded i.tree-leaf-head, treecontrol li.tree-collapsed i.tree-leaf-head {display:none;}
+treecontrol li.tree-expanded i.tree-branch-head, treecontrol li.tree-collapsed i.tree-branch-head {display:inline-block;}
+treecontrol li.tree-leaf i.tree-branch-head {display:none;}
+treecontrol li.tree-leaf i.tree-leaf-head {display:inline;}
+
+treecontrol li i.tree-branch-head {
+    cursor: pointer;
+}
+
+treecontrol li .tree-label {
+    cursor: pointer;
+    display: inline;
+}
+
+treecontrol li .tree-unselectable {
+    cursor: not-allowed;
+}
+/*treecontrol li div>.newPlan{*/
+    /*position: absolute;*/
+    /*right: 5px;*/
+    /*top: 0;*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*background: #fff;*/
+    /*display: none;*/
+/*}*/
+treecontrol li .folderName{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+treecontrol li .folderName:hover{
+    cursor: pointer;
+    background: #396c83;
+    color: #fff;
+}
+treecontrol li .folderName:hover >.yhnIconFolderSetting{
+    opacity:1.0;
+}
+treecontrol li .folderName:hover >.yhnIconFolderSetting1{
+    opacity:1.0;
+}
+
+/*treecontrol li .folderName:hover .newPlan{*/
+    /*display: block;*/
+/*}*/
+treecontrol.tree-classic li.tree-expanded i.tree-branch-head {
+    background: url("../images/icon.png") no-repeat;
+    background-position: -37px -50px;
+    width: 16px;
+    height: 16px;
+}
+
+treecontrol.tree-classic li.tree-collapsed i.tree-branch-head {
+    background: url("../images/icon.png") no-repeat;
+    background-position: -37px -21px;
+    width: 16px;
+    height: 16px;
+}
+
+treecontrol.tree-classic li.tree-leaf i.tree-leaf-head {
+    background: url("../images/icon.png") no-repeat;
+    background-position: -37px -81px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+treecontrol li .bg{
+    background: #2dc0e8;
+    color: #fff;
+}
+treecontrol li .folderName:hover i.tree-branch-head{
+    -ms-background-position-x: -75px;
+    background-position-x: -75px;
+}
+treecontrol li .folderName:hover i.tree-leaf-head{
+    -ms-background-position-x: -75px;
+    background-position-x: -75px;
+}
+treecontrol.tree-classic li.tree-collapsed .bg i.tree-branch-head,treecontrol.tree-classic li.tree-expanded .bg i.tree-branch-head{
+    -ms-background-position-x: -75px;
+    background-position-x: -75px;
+}
+treecontrol.tree-classic li.tree-leaf .bg i.tree-leaf-head {
+    -ms-background-position-x: -75px;
+    background-position-x: -75px;
+}
+treecontrol.tree-classic li .tree-selected {
+    font-weight: bold;
+}
+
+treecontrol.tree-classic li .tree-unselectable {
+    color: #ddd;
+}
+
+treecontrol.tree-light li.tree-expanded i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../images/node-opened-2.png") no-repeat;
+}
+
+treecontrol.tree-light li.tree-collapsed i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../images/node-closed-2.png") no-repeat;
+}
+
+treecontrol.tree-light li.tree-leaf i.tree-leaf-head {
+    padding: 1px 10px;
+    width: 16px; height: 16px;
+    background: none no-repeat;
+}
+
+treecontrol.tree-light li .tree-selected {
+    font-weight: bold;
+}
+
+treecontrol.tree-light li .tree-unselectable {
+    color: #ddd;
+}
+
+treecontrol.tree-dark li.tree-expanded i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../images/node-opened-light.png") no-repeat;
+}
+
+treecontrol.tree-dark li.tree-collapsed i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../images/node-closed-light.png") no-repeat;
+}
+
+treecontrol.tree-dark li.tree-leaf i.tree-leaf-head {
+    padding: 1px 10px;
+    width: 16px; height: 16px;
+    background: none no-repeat;
+}
+
+treecontrol.tree-dark li .tree-selected {
+    font-weight: bold;
+}
+
+treecontrol.tree-dark li .tree-unselectable {
+    color: #777;
+}
+
+treecontrol.tree-dark {
+    color: #ddd;
+}
+/*目录树 新建 重命名 删除*/
+.yhnCommonBG{
+    position: absolute;
+    display: block;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background:rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+.yhnCreateNewTree>div{
+    position: absolute;
+    width:390px;
+    height:250px;
+    top: 50%;
+    left:50%;
+    margin-left:-190px;
+    margin-top: -125px;
+    background:white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.yhnCommonHead{
+    position: absolute;
+    top: 0px;
+    width:100%;
+    height:50px;
+    background:#3D4F60;
+}
+.yhnCommonHead>span:nth-child(1){
+    display: inline-block;
+    margin-left:20px;
+    line-height: 50px;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    color:white;
+}
+.yhnCommonHead>span:nth-child(2){
+    display: inline-block;
+    position: absolute;
+    right:0px;
+    margin-right:20px;
+    font-family: "microsoft yahei";
+    line-height: 50px;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    color:white;
+    cursor: pointer;
+}
+.yhnCreateNewTree .yhnCommonContent{
+    position: absolute;
+    background:white;
+    margin-top: 50px;
+    width:100%;
+    top: 0px;
+    bottom: 0px;
+}
+/*取消按钮*/
+.yhnCancelButton{
+
+}
+/*添加文件夹图标*/
+.yhnIconFolderSetting{
+    position: absolute;
+    display: inline-block;
+    top:13px;
+    right:10px;
+    width:22px;
+    height:23px;
+    background:url("../images/setting.png");
+    opacity: 0.0;
+    z-index: 100;
+}
+.yhnIconFolderSetting:hover{
+    position: absolute;
+    display: inline-block;
+    top:13px;
+    right:10px;
+    width:22px;
+    height:23px;
+    background:url("../images/setting.png");
+    display: inline-block;
+    opacity: 1;
+    cursor: pointer;
+}
+/*添加文件夹图标*/
+.yhnIconFolderSetting1{
+    position: absolute;
+    display: inline-block;
+    top:13px;
+    right:10px;
+    width:22px;
+    height:23px;
+    background:url("../images/setting.png");
+    opacity: 0.0;
+    z-index: 100;
+}
+.yhnIconFolderSetting1:hover{
+    position: absolute;
+    display: inline-block;
+    top:13px;
+    right:10px;
+    width:22px;
+    height:23px;
+    background:url("../images/setting.png");
+    display: inline-block;
+    opacity: 1;
+    cursor: pointer;
+}
+/*文件夹弹出层*/
+.yhnFolderBounce{
+    position: absolute;
+    display: none;
+    top: 0px;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+    z-index: 1000;
+    background:rgba(0,0,0,0.3);
+}
+.yhnFolderList{
+    position: absolute;
+    z-index: 10;
+    width:150px;
+    height:126px;
+    background:white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnFolderList>div{
+    position: relative;
+    width:100%;
+    height:42px;
+}
+.yhnCreateFolder{
+    cursor: pointer;
+}
+.yhnCreateFolder:hover .yhnCreateIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -67px;
+    top: 12px;
+    left:20px;
+}
+.yhnCreateFolder>.yhnCreateIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -67px;
+    top: 12px;
+    left:20px;
+}
+.yhnCreateFolder>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left:7px;
+}
+.yhnCreateFolder:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left:7px;
+}
+/*.yhnCreateFolder>.yhnCreateIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background:red;
+    top: 12px;
+    left:10px;
+}*/
+/*文件删除*/
+.yhnFolderRename{
+    cursor: pointer;
+}
+.yhnFolderRename:hover .yhnRenameIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -3px;
+    top: 12px;
+    left:20px;
+}
+.yhnFolderRename>.yhnRenameIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -3px;
+    top: 12px;
+    left:20px;
+}
+.yhnFolderRename>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+.yhnFolderRename:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+/*添加计划*/
+.yhnFolderDelete{
+    cursor: pointer;
+}
+.yhnFolderDelete:hover .yhnFolderIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -25px;
+    top: 12px;
+    left:20px;
+}
+.yhnFolderDelete>.yhnFolderIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -25px;
+    top: 12px;
+    left:20px;
+}
+.yhnFolderDelete>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left:-7px;
+}
+.yhnFolderDelete:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left:-7px;
+}
+/*文件弹出层样式*/
+.yhnFileBounce{
+    position: absolute;
+    display: none;
+    top: 0px;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+    z-index: 1000;
+    background:rgba(0,0,0,0.3);
+}
+.yhnFileList{
+    position: absolute;
+    z-index: 10;
+    width:150px;
+    height:126px;
+    background:white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnFileList>div{
+    position: relative;
+    width:100%;
+    height:42px;
+}
+.yhnFileName{
+    cursor: pointer;
+}
+.yhnFileName:hover .yhnRenameIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -2px;
+    top: 12px;
+    left:20px;
+}
+.yhnFileName>.yhnRenameIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -2px;
+    top: 12px;
+    left:20px;
+}
+.yhnFileName>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left: 6px;
+}
+.yhnFileName:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+    margin-left: 6px;
+}
+/*文件删除*/
+.yhnFileDelete{
+    cursor: pointer;
+}
+.yhnFileDelete:hover .yhnDeleteIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -25px;
+    top: 12px;
+    left:20px;
+}
+.yhnFileDelete>.yhnDeleteIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -25px;
+    top: 12px;
+    left:20px;
+}
+.yhnFileDelete>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+.yhnFileDelete:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+/*添加计划*/
+.yhnFilePlan{
+    cursor: pointer;
+}
+.yhnFilePlan:hover .yhnFileIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -26px -47px;
+    top: 12px;
+    left:20px;
+}
+.yhnFilePlan>.yhnFileIcon{
+    position: absolute;
+    width:18px;
+    height:18px;
+    background-image:url('../images/fileFolder.png');
+    background-repeat: no-repeat;
+    background-position: -2px -47px;
+    top: 12px;
+    left:20px;
+}
+.yhnFilePlan>span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#4C5E70;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+.yhnFilePlan:hover span{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    text-align: center;
+    color:#2DC1E9;
+    font-weight: bold;
+    font-family: "microsoft yahei";
+}
+.createFolderBG{
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+    background:rgba(0,0,0,0.4);
+    display:none;
+}
+/*输入新建目录文件名*/
+.yhnInputFolderName{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    width:390px;
+    height:250px;
+    margin-left: -195px;
+    margin-top: -125px;
+    background:white;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnInputFolderName .headlineTitle{
+    position: absolute;
+    width:100%;
+    background:#3D4F60;
+    height:50px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+.yhnInputFolderName .headlineTitle span:nth-child(1){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 17px;
+    left:20px;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnInputFolderName .headlineTitle span:nth-child(2){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    right:20px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnInputFolderName .inputArea{
+    background:white;
+    position: absolute;
+    width:100%;
+    height: 70px;
+    top: 90px;
+}
+.yhnInputFolderName .inputArea span:nth-child(1){
+    position: absolute;
+    left:47px;
+    font-size: 16px;
+    font-weight: bold;
+    color:black;
+}
+.yhnInputFolderName .inputArea input:nth-child(2){
+    position: absolute;
+    left:86px;
+    font-size: 16px;
+    font-weight: normal;
+    color:black;
+    border:1px solid #C6C6C6;
+    color:#333;
+    width: 270px;
+    height: 30px;
+    text-indent: 10px;
+    margin-top: -5px;
+}
+.yhnInputFolderName .inputArea .folderCreateTips{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnInputFolderName .inputArea .folderCreateTips1{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnInputFolderName .inputArea .folderCreateTips span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnInputFolderName .inputArea .folderCreateTips i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+
+}
+
+.yhnInputFolderName .inputArea .folderCreateTips1>span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnInputFolderName .inputArea .folderCreateTips1>i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+}
+.yhnInputFolderName .buttonGroup{
+    position: absolute;
+    width:100%;
+    height:35px;
+    bottom:20px;
+}
+.yhnInputFolderName .buttonGroup button:nth-child(1){
+    position: absolute;
+    left: 150px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #9B9B9B;
+    color: #444;
+    background: #eee;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.yhnInputFolderName .buttonGroup button:nth-child(2){
+    position: absolute;
+    right:30px;
+    width:90px;
+    height:30px;
+    color:white;
+    background:#2E5F94;
+    border:1px solid #2E5F94;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+/*********************************
+*
+*重命名文件夹
+**********************************/
+.renameFolderBG{
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+    background:rgba(0,0,0,0.4);
+    display:none;
+}
+/*输入新建目录文件名*/
+.yhnRenameFolderName{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    width:390px;
+    height:250px;
+    margin-left: -195px;
+    margin-top: -125px;
+    background:white;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnRenameFolderName .headlineTitle{
+    position: absolute;
+    width:100%;
+    background:#3D4F60;
+    height:50px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+.yhnRenameFolderName .headlineTitle span:nth-child(1){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 17px;
+    left:20px;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnRenameFolderName .headlineTitle span:nth-child(2){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    right:20px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnRenameFolderName .inputArea{
+    background:white;
+    position: absolute;
+    width:100%;
+    height: 70px;
+    top: 90px;
+}
+.yhnRenameFolderName .inputArea span:nth-child(1){
+    position: absolute;
+    left:47px;
+    font-size: 16px;
+    font-weight: bold;
+    color:black;
+}
+.yhnRenameFolderName .inputArea input:nth-child(2){
+    position: absolute;
+    left:86px;
+    font-size: 16px;
+    font-weight: normal;
+    color:black;
+    border:1px solid #C6C6C6;
+    color:#333;
+    width: 270px;
+    height: 30px;
+    text-indent: 10px;
+    margin-top: -5px;
+}
+.yhnRenameFolderName .inputArea .folderCreateTips{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnRenameFolderName .inputArea .folderCreateTips1{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnRenameFolderName .inputArea .folderCreateTips span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnRenameFolderName .inputArea .folderCreateTips i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+}
+
+.yhnRenameFolderName .inputArea .folderCreateTips1>span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnRenameFolderName .inputArea .folderCreateTips1>i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+}
+.yhnRenameFolderName .buttonGroup{
+    position: absolute;
+    width:100%;
+    height:35px;
+    bottom:20px;
+}
+.yhnRenameFolderName .buttonGroup button:nth-child(1){
+    position: absolute;
+    left: 150px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #9B9B9B;
+    color: #444;
+    background: #eee;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.yhnRenameFolderName .buttonGroup button:nth-child(2){
+    position: absolute;
+    right:30px;
+    width:90px;
+    height:30px;
+    color:white;
+    background:#2E5F94;
+    border:1px solid #2E5F94;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+/*********************
+*   删除文件夹
+***********************/
+.deleteFolderBG{
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+    background:rgba(0,0,0,0.4);
+    display:none;
+}
+/*输入新建目录文件名*/
+.yhnDeleteFolderName{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    width:390px;
+    height:400px;
+    margin-left: -195px;
+    margin-top: -200px;
+    background:white;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnDeleteFolderName .headlineTitle{
+    position: absolute;
+    width:100%;
+    background:#3D4F60;
+    height:50px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+.yhnDeleteFolderName .headlineTitle span:nth-child(1){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 17px;
+    left:20px;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnDeleteFolderName .headlineTitle span:nth-child(2){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    right:20px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnDeleteFolderName .buttonGroup{
+    position: absolute;
+    width:100%;
+    height:35px;
+    bottom:20px;
+}
+.yhnDeleteFolderName .buttonGroup button:nth-child(1){
+    position: absolute;
+    left: 150px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #9B9B9B;
+    color: #444;
+    background: #eee;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.yhnDeleteFolderName .buttonGroup button:nth-child(2){
+    position: absolute;
+    right:30px;
+    width:90px;
+    height:30px;
+    color:white;
+    background:#2E5F94;
+    border:1px solid #2E5F94;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.deleteFolderBG .deleteTips{
+    position: absolute;
+    width:100%;
+    height:200px;
+    top: 100px;
+}
+.deleteFolderBG .deleteTips .deleteIconBG{
+    position: absolute;
+    width:130px;
+    height: 130px;
+    background:url("../images/deleteLogo.png");
+    background-repeat: no-repeat;
+    left:50%;
+    margin-left:-65px;
+}
+.deleteFolderBG .deleteTips>span{
+    position: absolute;
+    top: 140px;
+    left:50%;
+    width:80%;
+    margin-left:-40%;
+    display: inline-block;
+    font-size: 14px;
+}
+.deleteFolderBG .deleteTips>span>span{
+    font-weight: bold;
+}
+.deleteCartonBG{
+    position: absolute;
+    display: none;
+    z-index: 100;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background:rgba(0,0,0,0.1);
+}
+.deleteCartonBG .deleteCarton{
+    position: absolute;
+    z-index: 100;
+    width:100px;
+    height:100px;
+
+    left:50%;
+    top: 50%;
+    margin-left:-50px;
+    margin-top: -50px;
+}
+
+.object{
+    
+    width: 18px;
+    height: 18px;
+    background-color: #FFF;
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+    -webkit-animation: object 1s infinite;
+    animation: object 1s infinite;
+}
+.object:last-child {
+    margin-right: 0px;
+}
+
+.object:nth-child(9){
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+.object:nth-child(8){
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+.object:nth-child(7){
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+.object:nth-child(6){
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+.object:nth-child(5){
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.object:nth-child(4){
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.object:nth-child(3){
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.object:nth-child(2){
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes object{
+    50% {
+        -ms-transform: translate(0,-50px);
+        -webkit-transform: translate(0,-50px);
+        transform: translate(0,-50px);
+    }
+}
+@keyframes object{
+    50% {
+        -ms-transform: translate(0,-50px);
+        -webkit-transform: translate(0,-50px);
+        transform: translate(0,-50px);
+    }
+}
+
+
+.commonMessageTips{
+    position: absolute;
+    display:none;
+    opacity:1;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+    background:rgba(0,0,0,0);
+    transition-property: opacity;
+    transition-duration:0.4s;
+}
+.commonMessageTips>div{
+    position: absolute;
+    opacity:1;
+    top:50%;
+    margin-top:-30px;
+    left:50%;
+    margin-left:-150px;
+    width:300px;
+    height:60px;
+    z-index: 1000;
+    background:rgba(0,0,0,0.7);
+    box-shadow:0px 0px 1px black;
+    color:white;
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+}
+/*********************************
+*
+*重命名文件
+**********************************/
+.renameFileBG{
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+    background:rgba(0,0,0,0.4);
+    display:none;
+}
+/*输入新建文件名*/
+.yhnRenameFileName{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    width:390px;
+    height:250px;
+    margin-left: -195px;
+    margin-top: -125px;
+    background:white;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnRenameFileName .headlineTitle{
+    position: absolute;
+    width:100%;
+    background:#3D4F60;
+    height:50px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+.yhnRenameFileName .headlineTitle span:nth-child(1){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 17px;
+    left:20px;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnRenameFileName .headlineTitle span:nth-child(2){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    right:20px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnRenameFileName .inputArea{
+    background:white;
+    position: absolute;
+    width:100%;
+    height: 70px;
+    top: 90px;
+}
+.yhnRenameFileName .inputArea span:nth-child(1){
+    position: absolute;
+    left:47px;
+    font-size: 16px;
+    font-weight: bold;
+    color:black;
+}
+.yhnRenameFileName .inputArea input:nth-child(2){
+    position: absolute;
+    left:86px;
+    font-size: 16px;
+    font-weight: normal;
+    color:black;
+    border:1px solid #C6C6C6;
+    color:#333;
+    width: 270px;
+    height: 30px;
+    text-indent: 10px;
+    margin-top: -5px;
+}
+.yhnRenameFileName .inputArea .folderCreateTips{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnRenameFileName .inputArea .folderCreateTips1{
+    position: absolute;
+    left: 100px;
+    color: red;
+    top: 34px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.yhnRenameFileName .inputArea .folderCreateTips span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnRenameFileName .inputArea .folderCreateTips i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+}
+
+.yhnRenameFileName .inputArea .folderCreateTips1>span{
+    position: absolute;
+    left: 20px;
+    color: red;
+    top: -2px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 240px;
+}
+.yhnRenameFileName .inputArea .folderCreateTips1>i{
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background:url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: -111px -142px;
+}
+.yhnRenameFileName .buttonGroup{
+    position: absolute;
+    width:100%;
+    height:35px;
+    bottom:20px;
+}
+.yhnRenameFileName .buttonGroup button:nth-child(1){
+    position: absolute;
+    left: 150px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #9B9B9B;
+    color: #444;
+    background: #eee;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.yhnRenameFileName .buttonGroup button:nth-child(2){
+    position: absolute;
+    right:30px;
+    width:90px;
+    height:30px;
+    color:white;
+    background:#2E5F94;
+    border:1px solid #2E5F94;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+/*********************
+*   删除文件
+***********************/
+.deleteFileBG{
+    position: absolute;
+    top: 0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 100;
+    background:rgba(0,0,0,0.4);
+    display:none;
+}
+/*输入新建目录文件名*/
+.yhnDeleteFileName{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    width:390px;
+    height:400px;
+    margin-left: -195px;
+    margin-top: -200px;
+    background:white;
+    z-index: 100;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.yhnDeleteFileName .headlineTitle{
+    position: absolute;
+    width:100%;
+    background:#3D4F60;
+    height:50px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+.yhnDeleteFileName .headlineTitle span:nth-child(1){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 17px;
+    left:20px;
+    line-height: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnDeleteFileName .headlineTitle span:nth-child(2){
+    position: absolute;
+    height:50px;
+    color:white;
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    right:20px;
+    line-height: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.yhnDeleteFileName .buttonGroup{
+    position: absolute;
+    width:100%;
+    height:35px;
+    bottom:20px;
+}
+.yhnDeleteFileName .buttonGroup button:nth-child(1){
+    position: absolute;
+    left: 150px;
+    width: 90px;
+    height: 30px;
+    border: 1px solid #9B9B9B;
+    color: #444;
+    background: #eee;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.yhnDeleteFileName .buttonGroup button:nth-child(2){
+    position: absolute;
+    right:30px;
+    width:90px;
+    height:30px;
+    color:white;
+    background:#2E5F94;
+    border:1px solid #2E5F94;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.deleteFileBG .deleteTips{
+    position: absolute;
+    width:100%;
+    height:200px;
+    top: 100px;
+}
+.deleteFileBG .deleteTips .deleteIconBG{
+    position: absolute;
+    width:130px;
+    height: 130px;
+    background:url("../images/deleteLogo.png");
+    background-repeat: no-repeat;
+    left:50%;
+    margin-left:-65px;
+}
+.deleteFileBG .deleteTips>span{
+    position: absolute;
+    top: 140px;
+    left:50%;
+    width:80%;
+    margin-left:-40%;
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+}
+.deleteFileBG .deleteTips>span>span{
+    font-weight: bold;
+}

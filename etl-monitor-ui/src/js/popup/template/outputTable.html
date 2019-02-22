@@ -1,0 +1,65 @@
+<div class="outputTable popupItem">
+    <div class="outputTitle">
+        <span>表输出</span>
+        <span ng-click = "close();">x</span>
+    </div>
+    <div class="outputContent">
+        <div class="outputRealContent">
+            <div class="outputUpContent">
+                <div>
+                    <span>步骤名称</span>
+                    <input type="text" value={{outputTableName}} ng-model = "outputTableName">
+                </div>
+                <div>
+                    <span>DB连接</span>
+                    <select  ng-model="outputTableContent" ng-options="x for x in allDbList" ng-change = "dbLinkChanged();">
+                    </select>
+                </div>
+                <div>
+                    <span>目标模式</span>
+                    <select  ng-model="outputTargetPattern" ng-options="x for x in targetPatern" ng-change = "targetPatternChanged();">
+
+                    </select>
+                </div>
+                <div>
+                    <span>目标表</span>
+                    <select  ng-model="targetTable" ng-options="x for x in tableList" ng-change = "targetTableChanged();">
+
+                    </select>
+                </div>
+            </div>
+            <div class="outputCenterContent">
+                <div class="clientCheck">
+                    <label for = "clientCheck">自定义字段映射关系</label>
+                    <input type="checkbox"  id = "clientCheck" ng-model = "showOrHide"/>
+                </div>
+                <div class="smallButtonGroup" ng-show = "showOrHide">
+                    <i ng-click = "addNewOutputTr();"></i>
+                    <i ng-click = "deleteOutputTr();"></i>
+                </div>
+                <div class="tableArea" ng-show = "showOrHide">
+                    <div>
+                        <span>序号</span>
+                        <span>流字段</span>
+                        <span>表字段</span>
+                    </div>
+                    <table>
+                        <tr class = "outputTr" ng-repeat = "x in fieldList" ng-click='selectOutputTr($index);'>
+                            <td> {{$index+1}}</td>
+                            <td> <input type="text" value = "{{x.stream_name}}" ng-model = "x.stream_name"></td>
+                            <td>
+                                <select ng-model = "x.column_name">
+                                    <option ng-repeat = "o in x.columnList">{{o}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="outputButtonGroup">
+                <button ng-click = "close();">取消</button>
+                <button ng-click = outputMakeSure();>确定</button>
+            </div>
+        </div>
+    </div>
+</div>

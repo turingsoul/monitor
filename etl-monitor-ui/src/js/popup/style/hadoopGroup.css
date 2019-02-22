@@ -1,0 +1,462 @@
+.hadoopGroup .connectHadoop{
+    width:440px;
+    height:730px;
+}
+.hadoopGroup .editMyHadoop{
+    width:440px;
+    height:730px;
+}
+.hadoopTitle{
+    position: absolute;
+    top: 0px;
+    height:50px;
+    width:100%;
+    background:#3E4F61;
+}
+.hadoopTitle>span:nth-child(1){
+    position:absolute;
+    left:20px;
+    top:16px;
+    font-size:16px;
+    color:white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.hadoopTitle>span:nth-child(2){
+    display:inline-block;
+    position:absolute;
+    top:9px;
+    right:20px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
+}
+.hadoopContent{
+    position: absolute;
+    top: 50px;
+    width:100%;
+    height:calc(100% - 50px);
+}
+.hadoopContent .buttonGroup{
+    position: absolute;
+    height:30px;
+    width:calc(100% - 80px);
+    bottom:40px;
+    left:40px;
+    background:white;
+}
+.hadoopContent .buttonGroup button{
+    width:90px;
+    height:30px;
+    text-align: center;
+    border:none;
+    border-radius:3px;
+    cursor: pointer;
+}
+.hadoopContent .buttonGroup button:nth-child(1){
+    position: absolute;
+    right:120px;
+    background:#F2F2F2;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hadoopContent .buttonGroup button:nth-child(1):hover{
+    background:#e8e6e6;
+    color:#999999;
+    border:1px solid #E5E5E5;
+}
+.hadoopContent .buttonGroup button:nth-child(2){
+    position: absolute;
+    right: 0px;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.hadoopContent .buttonGroup button:nth-child(2):hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}
+.hadoopContent .contentGroup{
+    position: absolute;
+    left: 40px;
+    top: 22px;
+    width:calc(100% - 80px);
+    height: 460px;
+}
+.contentGroup .hadoopGroup1{
+    position: relative;
+    width:100%;
+    height:65px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.contentGroup .hadoopGroup2{
+    position: relative;
+    width:100%;
+    height:196px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.contentGroup .hadoopGroup3{
+    position: relative;
+    width:100%;
+    height:120px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.contentGroup .hadoopGroup4{
+    position: relative;
+    width:100%;
+    height:80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.hadoopGroup1 div:nth-child(1){
+    height:30px;
+}
+.hadoopGroup1 div:nth-child(1) span{
+    font-weight:bold;
+    line-height:30px;
+    margin-left:40px;
+}
+.hadoopGroup1 div:nth-child(1) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.hadoopGroup1 div:nth-child(2){
+    height:32px;
+}
+.hadoopGroup1 div:nth-child(2) label{
+    height:32px;
+    display:inline-block;
+    color:#2C5F94;
+    line-height:32px;
+}
+.hadoopGroup1 div:nth-child(2) input{
+    position:absolute;
+    margin-top:10px;
+    margin-left:7px;
+    color:#2C5F94;
+}
+.contentGroup .hadoopGroup2 div:nth-child(1){
+    height:26px;
+    background:#E9E9E9;
+}
+.contentGroup .hadoopGroup2 div:nth-child(1) span{
+    height:26px;
+    line-height:26px;
+    margin-left:10px;
+    font-weight:bold;
+    color:#747474;
+}
+.contentGroup .hadoopGroup2 div:nth-child(2){
+    height:40px;
+    width:100%;
+    margin-top:4px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(2) span{
+    margin-left:35px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(2) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(3){
+    height:40px;
+    width:100%;
+}
+.contentGroup .hadoopGroup2 div:nth-child(3) span{
+    margin-left:65px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(3) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(4){
+    height:40px;
+    width:100%;
+}
+.contentGroup .hadoopGroup2 div:nth-child(4) span{
+    margin-left:53px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(4) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(5){
+    height:40px;
+    width:100%;
+}
+.contentGroup .hadoopGroup2 div:nth-child(5) span{
+    margin-left:65px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup2 div:nth-child(5) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup3 div:nth-child(1){
+    height:26px;
+    background:#E9E9E9;
+}
+.contentGroup .hadoopGroup3 div:nth-child(1) span{
+    height:26px;
+    line-height:26px;
+    margin-left:10px;
+    font-weight:bold;
+    color:#747474;
+}
+.contentGroup .hadoopGroup3 div:nth-child(2){
+    height:40px;
+    width:100%;
+    margin-top: 4px;
+}
+.contentGroup .hadoopGroup3 div:nth-child(2) span{
+    margin-left:34px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup3 div:nth-child(2) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup3 div:nth-child(3){
+    height:40px;
+    width:100%;
+}
+.contentGroup .hadoopGroup3 div:nth-child(3) span{
+    margin-left:64px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup3 div:nth-child(3) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+
+/**/
+.contentGroup .hadoopGroup4 div:nth-child(1){
+    height:26px;
+    background:#E9E9E9;
+}
+.contentGroup .hadoopGroup4 div:nth-child(1) span{
+    height:26px;
+    line-height:26px;
+    margin-left:10px;
+    font-weight:bold;
+    color:#747474;
+}
+.contentGroup .hadoopGroup4 div:nth-child(2){
+    height:40px;
+    width:100%;
+    margin-top: 4px;
+}
+.contentGroup .hadoopGroup4 div:nth-child(2) span{
+    margin-left:63px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup4 div:nth-child(2) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup4 div:nth-child(3) span{
+    margin-left:63px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup4 div:nth-child(3) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+
+/*5*/
+.contentGroup .hadoopGroup5 div:nth-child(1){
+    height:26px;
+    background:#E9E9E9;
+}
+.contentGroup .hadoopGroup5 div:nth-child(1) span{
+    height:26px;
+    line-height:26px;
+    margin-left:10px;
+    font-weight:bold;
+    color:#747474;
+}
+.contentGroup .hadoopGroup5 div:nth-child(2){
+    height:40px;
+    width:100%;
+    margin-top: 4px;
+}
+.contentGroup .hadoopGroup5 div:nth-child(2) span{
+    margin-left:33px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup5 div:nth-child(2) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+.contentGroup .hadoopGroup5 div:nth-child(3) span{
+    margin-left:63px;
+    font-weight:bold;
+    line-height:40px;
+    height:40px;
+}
+.contentGroup .hadoopGroup5 div:nth-child(3) input{
+    width:240px;
+    height:26px;
+    margin-left:8px;
+    text-indent:5px;
+}
+/*编辑*/
+
+/*管理Hadoop集群*/
+.HadoopList{
+    width:440px;
+    height:374px;
+}
+.hadoopGroup .hadoopList1{
+    position: absolute;
+    width:100%;
+    margin-top: 50px;
+    height:calc(100% - 50px);
+}
+.hadoopGroup .hadoopList1 div:nth-child(1){
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width:100px;
+    height:140px;
+}
+.hadoopGroup .hadoopList1 div:nth-child(1) span{
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2){
+    position: absolute;
+    width:254px;
+    height:182px;
+    left: 146px;
+    top: 26px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.iconGroup{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    height:30px;
+    width:100%;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.iconGroup i{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.iconGroup i:nth-child(1){
+    position: absolute;
+    right: 0px;
+    background: url("../../../images/icon.png") no-repeat;
+    background-position: -300px -104px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.iconGroup i:nth-child(2){
+    position: absolute;
+    right:19px;
+    background: url("../../../images/icon.png") no-repeat;
+    background-position: -301px -80px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.iconGroup i:nth-child(3){
+    position: absolute;
+    right: 38px;
+    background: url("../../../images/icon.png") no-repeat;
+    background-position: -302px -54px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.hadoopListBox{
+    position: absolute;
+    top: 19px;
+    width: 100%;
+    height: calc(100% - 19px);
+    background: red;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.hadoopListBox select{
+    position: absolute;
+    width:100%;
+    height:163px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(2) div.hadoopListBox select option{
+    height: 21px;
+    max-width: 540px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 9px 10px 0 10px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(3){
+    position: absolute;
+    width: 90px;
+    height: 30px;
+    background:red;
+    right: 40px;
+    bottom: 40px;
+}
+.hadoopGroup .hadoopList1>div:nth-child(3) button{
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    background:#2D5F94;
+    color:#FFFFFD;
+    border:1px solid #2D5F94;
+}
+.hadoopGroup .hadoopList1>div:nth-child(3) button:hover{
+    background:#0f5196;
+    color:#FFFFFD;
+    border:1px solid #0f4782;
+}

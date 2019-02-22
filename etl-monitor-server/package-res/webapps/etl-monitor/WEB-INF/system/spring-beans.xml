@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-lazy-init="true">
+
+    <bean class="org.pentaho.platform.engine.core.system.objfac.spring.ApplicationContextPentahoSystemRegisterer"/>
+
+    <bean id="systemListenersList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <bean id="kettleSystemListener" class="com.xdatainsight.monitor.kettle.KettleSystemListener" />
+                <bean id="quartzSystemListener" class="com.xdatainsight.monitor.web.http.api.resources.EmbeddedQuartzSystemListener" />
+                <bean id="sampleUsersAndRolesListener" class="com.xdatainsight.monitor.web.http.security.userrole.SampleUsersAndRolesListener" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="systemSettingsService" class="org.pentaho.platform.engine.core.system.PathBasedSystemSettings" />
+    <bean class="org.pentaho.platform.engine.core.system.SpringPentahoSystemProxy" lazy-init="false">
+        <property name="systemListeners" ref="systemListenersList" />
+        <property name="systemSettingsService" ref="systemSettingsService" />
+    </bean>
+
+    <bean id="ISolutionEngine" class="org.pentaho.platform.engine.services.solution.SolutionEngine" scope="prototype"/>
+    <bean id="IAuditEntry" class="org.pentaho.platform.engine.services.audit.AuditFileEntry"/>
+
+    <bean id="IScheduler2" class="org.pentaho.platform.scheduler2.quartz.QuartzScheduler"/>
+    <bean id="IBlockoutManager" class="org.pentaho.platform.scheduler2.blockout.PentahoBlockoutManager"/>
+
+
+    <bean id="pooledOrJndiDatasourceService" class="org.pentaho.platform.engine.services.connection.datasource.dbcp.PooledOrJndiDatasourceService"/>
+    <bean id="nonPooledOrJndiDatasourceService" class="org.pentaho.platform.engine.services.connection.datasource.dbcp.NonPooledOrJndiDatasourceService"/>
+
+    <bean id="IDBDatasourceService" class="org.pentaho.platform.engine.services.connection.datasource.dbcp.DynamicallyPooledOrJndiDatasourceService">
+        <property name="pooledDatasourceService" ref="pooledOrJndiDatasourceService" />
+        <property name="nonPooledDatasourceService" ref="nonPooledOrJndiDatasourceService" />
+    </bean>
+
+    <!--<import resource="applicationContext-spring-security-memory.xml"/>-->
+
+
+    <import resource="applicationContext-spring-security-jdbc.xml"/>
+</beans>
